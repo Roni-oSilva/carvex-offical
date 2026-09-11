@@ -28,15 +28,15 @@
   "_sobre_logo": "Para usar sua logo: coloque o arquivo na pasta public/ e escreva aqui /nome-do-arquivo.png. Deixando vazio, o site usa o diamante desenhado em SVG.",
 
   "contato": {
-    "whatsapp": "5591900000000",
-    "whatsappVisivel": "+55 91 90000-0000",
-    "email": "contato@carvex.com.br",
-    "instagram": "carvex",
+    "whatsapp": "91981902529",
+    "whatsappVisivel": "+55 91 91981902529",
+    "email": "miraclestudio.land@gmail.com.br",
+    "instagram": "carvex_lab",
     "mensagemPadrao": "Olá, CARVEX! Gostaria de conhecer os serviços.",
     "tituloSecao": "Fale direto com a gente."
   },
 
-  "_sobre_whatsapp": "O campo whatsapp é só números: 55 (Brasil) + DDD + número. O whatsappVisivel é como aparece escrito na tela, pode ter espaços e traços.",
+  "_sobre_whatsapp": "O campo whatsapp é só números: 55 (Brasil) + 91 + 981902529. O whatsappVisivel é como aparece escrito na tela, pode ter espaços e traços.",
 
   "cores": {
     "principal": "#0868F7",
