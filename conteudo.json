@@ -1,0 +1,157 @@
+{
+  "_leia_primeiro": [
+    "ESTE É O ÚNICO ARQUIVO QUE VOCÊ PRECISA EDITAR PARA MUDAR O SITE.",
+    "",
+    "Como editar sem instalar nada:",
+    "  1. Abra seu repositório no github.com",
+    "  2. Clique neste arquivo (conteudo.json)",
+    "  3. Clique no lápis, no canto superior direito",
+    "  4. Altere o texto que quiser, ENTRE AS ASPAS",
+    "  5. Desça e clique em Commit changes",
+    "  6. A Vercel republica o site sozinha em cerca de 40 segundos",
+    "",
+    "Três regras para não quebrar o arquivo:",
+    "  - Mexa só no que está DEPOIS dos dois-pontos, entre aspas",
+    "  - Não apague vírgulas, chaves { } nem colchetes [ ]",
+    "  - Para usar aspas dentro de um texto, escreva assim: \\\"",
+    "",
+    "Se der erro no deploy, foi vírgula ou chave apagada sem querer.",
+    "No GitHub, vá em Commits, abra o anterior e clique em Revert."
+  ],
+
+  "marca": {
+    "nome": "CARVEX",
+    "slogan": "Technology, refined.",
+    "logo": ""
+  },
+
+  "_sobre_logo": "Para usar sua logo: coloque o arquivo na pasta public/ e escreva aqui /nome-do-arquivo.png. Deixando vazio, o site usa o diamante desenhado em SVG.",
+
+  "contato": {
+    "whatsapp": "5591900000000",
+    "whatsappVisivel": "+55 91 90000-0000",
+    "email": "contato@carvex.com.br",
+    "instagram": "carvex",
+    "mensagemPadrao": "Olá, CARVEX! Gostaria de conhecer os serviços.",
+    "tituloSecao": "Fale direto com a gente."
+  },
+
+  "_sobre_whatsapp": "O campo whatsapp é só números: 55 (Brasil) + DDD + número. O whatsappVisivel é como aparece escrito na tela, pode ter espaços e traços.",
+
+  "cores": {
+    "principal": "#0868F7",
+    "fundo": "#02050A",
+    "texto": "#FFFFFF",
+    "destaque": "#9CA8BA"
+  },
+
+  "hero": {
+    "titulo": "Transformamos ideias em tecnologia.",
+    "descricao": "Criamos experiências digitais, inteligência para seus dados e automações que fazem seu negócio avançar.",
+    "botaoPrincipal": "Falar com a CARVEX",
+    "botaoSecundario": "Conhecer a CARVEX",
+    "blackHole": true
+  },
+
+  "complexidade": {
+    "frase1": "Seu negócio gera complexidade.",
+    "frase2": "A tecnologia certa transforma tudo."
+  },
+
+  "servicos": {
+    "titulo": "É aqui que entramos.",
+    "descricao": "Três frentes, um objetivo: tirar o atrito do caminho.",
+    "itens": [
+      {
+        "numero": "01",
+        "titulo": "Landing Pages",
+        "descricao": "Experiências digitais que transformam atenção em oportunidade.",
+        "tags": ["Design", "Conversão", "Performance"],
+        "visual": "landing",
+        "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em criar uma Landing Page.",
+        "ativo": true
+      },
+      {
+        "numero": "02",
+        "titulo": "Business Intelligence",
+        "descricao": "Dados organizados para decisões mais inteligentes.",
+        "tags": ["Dados", "Dashboards", "Indicadores"],
+        "visual": "dashboard",
+        "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em uma solução de Business Intelligence.",
+        "ativo": true
+      },
+      {
+        "numero": "03",
+        "titulo": "Automação",
+        "descricao": "Processos inteligentes que trabalham por você.",
+        "tags": ["Automação", "Integrações", "IA"],
+        "visual": "workflow",
+        "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em automação.",
+        "ativo": true
+      }
+    ]
+  },
+
+  "_sobre_visual": "O campo visual aceita: landing, dashboard, workflow ou none. É a ilustração animada que aparece ao lado do serviço.",
+
+  "processo": {
+    "titulo": "Da ideia ao resultado.",
+    "descricao": "",
+    "etapas": [
+      { "numero": "01", "titulo": "Entender", "descricao": "Escutamos o problema antes de propor a solução.", "ativo": true },
+      { "numero": "02", "titulo": "Projetar", "descricao": "Desenhamos o caminho mais curto até o resultado.", "ativo": true },
+      { "numero": "03", "titulo": "Construir", "descricao": "Entregamos rápido, sem abrir mão do acabamento.", "ativo": true },
+      { "numero": "04", "titulo": "Lapidar", "descricao": "Refinamos até restar só o que gera valor.", "ativo": true }
+    ]
+  },
+
+  "diamante": {
+    "frase1": "Não adicionamos complexidade.",
+    "frase2": "Lapidamos.",
+    "descricao": ""
+  },
+
+  "sobre": {
+    "titulo": "Tecnologia com propósito.",
+    "descricao": "Design, dados e automação trabalhando juntos para transformar ideias em resultados.",
+    "pilares": [
+      { "titulo": "Design", "descricao": "Interfaces pensadas para pessoas." },
+      { "titulo": "Dados", "descricao": "Informação transformada em clareza." },
+      { "titulo": "Automação", "descricao": "Processos trabalhando por você." }
+    ]
+  },
+
+  "diagnostico": {
+    "titulo": "O que está travando seu negócio?",
+    "opcoes": [
+      { "frase": "Preciso de uma presença digital melhor.", "mensagemWhatsapp": "Olá, CARVEX! Preciso de uma presença digital melhor." },
+      { "frase": "Tenho dados, mas não tenho clareza.", "mensagemWhatsapp": "Olá, CARVEX! Tenho dados, mas não tenho clareza sobre eles." },
+      { "frase": "Tenho processos repetitivos.", "mensagemWhatsapp": "Olá, CARVEX! Tenho processos repetitivos que quero automatizar." },
+      { "frase": "Tenho uma ideia e não sei por onde começar.", "mensagemWhatsapp": "Olá, CARVEX! Tenho uma ideia e não sei por onde começar." }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Vamos construir algo extraordinário?",
+    "descricao": "Conte-nos o que você precisa.",
+    "textoBotao": "Falar com a CARVEX"
+  },
+
+  "rodape": {
+    "texto": "Technology, refined.",
+    "copyright": "2026 CARVEX. Todos os direitos reservados."
+  },
+
+  "secoesVisiveis": {
+    "complexidade": true,
+    "servicos": true,
+    "processo": true,
+    "diamante": true,
+    "sobre": true,
+    "diagnostico": true,
+    "cta": true,
+    "contato": true
+  },
+
+  "_sobre_secoes": "Troque true por false para esconder uma seção inteira do site. O hero e o rodapé não podem ser desligados."
+}

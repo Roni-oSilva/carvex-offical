@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Sobrescritos em runtime pelo tema salvo no admin. */
+  --brand: 8 104 247;
+  --ink: 2 5 10;
+  --deep: 3 21 47;
+  --paper: 255 255 255;
+  --muted: 156 168 186;
+  --pad: clamp(20px, 5vw, 64px);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html, body { max-width: 100%; overflow-x: clip; }
+
+body {
+  background: rgb(var(--ink));
+  color: rgb(var(--paper));
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgb(var(--brand)); color: #fff; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(-7px) rotateY(-12deg); }
+  50%      { transform: translateY(7px) rotateY(12deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
