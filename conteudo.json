@@ -47,52 +47,71 @@
   },
 
   "hero": {
-    "titulo": "Transformamos ideias em tecnologia.",
-    "destaque": "tecnologia.",
-    "descricao": "Landing pages, inteligência de dados e automações para empresas que querem crescer com mais eficiência.",
+    "titulo": "Sua empresa rodando em tecnologia de verdade.",
+    "descricao": "Landing pages, inteligência de dados e automações para quem quer crescer sem aumentar o esforço.",
     "botaoPrincipal": "Falar com a CARVEX",
-    "botaoSecundario": "Ver serviços",
-    "selos": ["Entrega rápida", "Design sob medida", "Foco em conversão"],
+    "botaoSecundario": "Ver o que fazemos",
+    "selos": ["Entrega em semanas", "Feito sob medida", "Suporte direto com quem fez"],
     "blackHole": true
   },
 
-  "_sobre_destaque": "O texto em destaque recebe um bloco azul atrás. Ele precisa ser um pedaço exato do título — se você mudar o título, ajuste o destaque também, senão o bloco não aparece.",
-
   "servicos": {
-    "titulo": "O que fazemos.",
-    "descricao": "Três frentes, um objetivo: tirar o atrito do caminho.",
+    "titulo": "Três frentes. Um objetivo.",
+    "descricao": "Tirar o atrito do caminho entre o seu trabalho e o seu resultado.",
     "itens": [
       {
-        "numero": "01",
-        "titulo": "Landing Pages",
-        "descricao": "Páginas rápidas e modernas, feitas para transformar atenção em cliente.",
-        "icone": "Gem",
-        "tags": ["Design", "Conversão", "Performance"],
+        "titulo": "Páginas que viram cliente",
+        "nomeCurto": "Landing Pages",
+        "descricao": "Páginas rápidas e modernas, construídas para transformar atenção em conversa.",
+        "selos": ["Design próprio", "Carrega rápido", "Pronta para anúncio"],
+        "visual": "landing",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em criar uma Landing Page.",
         "ativo": true
       },
       {
-        "numero": "02",
-        "titulo": "Business Intelligence",
-        "descricao": "Seus dados organizados em painéis claros, para decidir com segurança.",
-        "icone": "BarChart3",
-        "tags": ["Dados", "Dashboards", "Indicadores"],
+        "titulo": "Seus dados finalmente claros",
+        "nomeCurto": "Business Intelligence",
+        "descricao": "Painéis que mostram o que está acontecendo agora, sem planilha travando no meio do caminho.",
+        "selos": ["Painéis ao vivo", "Indicadores que importam", "Atualização automática"],
+        "visual": "dashboard",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em uma solução de Business Intelligence.",
         "ativo": true
       },
       {
-        "numero": "03",
-        "titulo": "Automação",
-        "descricao": "Processos repetitivos saem da sua mão e passam a rodar sozinhos.",
-        "icone": "Workflow",
-        "tags": ["Automação", "Integrações", "IA"],
+        "titulo": "O trabalho repetitivo sai da sua mão",
+        "nomeCurto": "Automação",
+        "descricao": "Processos manuais viram fluxos que rodam sozinhos, do primeiro contato até o resultado.",
+        "selos": ["Integra o que você já usa", "Roda sozinho", "Com IA quando faz sentido"],
+        "visual": "workflow",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em automação.",
         "ativo": true
       }
     ]
   },
 
-  "_sobre_icone": "Ícones disponíveis: Gem, BarChart3, Workflow, LineChart, Database, LayoutDashboard, Bot, Cpu, Boxes, Globe, Rocket, Settings2, Sparkles, Target, Zap.",
+  "_sobre_visual": "O campo visual aceita: landing, dashboard, workflow ou none. É a tela animada que aparece dentro do painel do serviço.",
+
+  "processo": {
+    "titulo": "Da ideia ao resultado.",
+    "descricao": "Quatro etapas, sem reunião que não leva a lugar nenhum.",
+    "etapas": [
+      { "titulo": "Entender", "descricao": "Escutamos o problema antes de propor a solução.", "ativo": true },
+      { "titulo": "Projetar", "descricao": "Desenhamos o caminho mais curto até o resultado.", "ativo": true },
+      { "titulo": "Construir", "descricao": "Entregamos rápido, sem abrir mão do acabamento.", "ativo": true },
+      { "titulo": "Lapidar", "descricao": "Refinamos até restar só o que gera valor.", "ativo": true }
+    ]
+  },
+
+  "diagnostico": {
+    "titulo": "O que está travando você hoje?",
+    "descricao": "Escolha a frase mais parecida com a sua situação. A conversa começa já no assunto certo.",
+    "opcoes": [
+      { "frase": "Minha presença digital não representa o meu trabalho.", "mensagemWhatsapp": "Olá, CARVEX! Minha presença digital não representa o meu trabalho e quero melhorar isso." },
+      { "frase": "Tenho dados espalhados e nenhuma clareza.", "mensagemWhatsapp": "Olá, CARVEX! Tenho dados espalhados e preciso de clareza sobre eles." },
+      { "frase": "Perco horas por semana no mesmo trabalho manual.", "mensagemWhatsapp": "Olá, CARVEX! Perco horas por semana em trabalho manual e quero automatizar." },
+      { "frase": "Tenho uma ideia e não sei por onde começar.", "mensagemWhatsapp": "Olá, CARVEX! Tenho uma ideia e não sei por onde começar." }
+    ]
+  },
 
   "rodape": {
     "texto": "Technology, refined.",

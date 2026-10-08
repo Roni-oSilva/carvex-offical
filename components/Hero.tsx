@@ -1,117 +1,150 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { Check } from "lucide-react";
 import { BlackHole } from "./ui/black-hole";
 import { TextRoll } from "./ui/text-roll";
+import { Badge, Panel, Screen } from "./ui/panel";
 import { MagneticLink } from "./MagneticButton";
 import { generateWhatsAppLink } from "@/lib/utils";
 import type { SiteData } from "@/lib/types";
 
 /**
- * Divide o titulo em tres partes: antes do destaque, o destaque, depois.
- * O destaque recebe um bloco azul atras. Se o texto do destaque nao
- * existir dentro do titulo, o titulo e renderizado inteiro, sem bloco.
+ * O primeiro painel: azul inteiro, titulo em corpo de poster a esquerda,
+ * uma tela escura a direita. O Black Hole fica atras da tela, como textura.
  */
-function dividirTitulo(titulo: string, destaque: string) {
-  if (!destaque) return { antes: titulo, marcado: "", depois: "" };
-  const i = titulo.indexOf(destaque);
-  if (i === -1) return { antes: titulo, marcado: "", depois: "" };
-  return {
-    antes: titulo.slice(0, i),
-    marcado: destaque,
-    depois: titulo.slice(i + destaque.length),
-  };
-}
-
 export function Hero({ data }: { data: SiteData }) {
   const reduce = useReducedMotion();
   const wa = generateWhatsAppLink(data.contact.whatsapp, data.contact.defaultMessage);
-  const { antes, marcado, depois } = dividirTitulo(data.hero.title, data.hero.highlight);
 
   const entra = (delay: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 24, filter: "blur(8px)" },
-    animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-    transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] as const },
+    initial: reduce ? false : { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] as const },
   });
 
   return (
-    <section
-      id="inicio"
-      className="relative flex min-h-[92svh] items-center overflow-hidden pb-20 pt-[124px] md:min-h-svh"
-    >
-      {data.hero.blackHole && (
-        <>
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[58%]">
-            <BlackHole className="h-full w-full" />
-          </div>
+    <div id="inicio" className="px-[var(--pad)] pt-[88px]">
+      <Panel
+        tone="blue"
+        glow
+        className="mx-auto grid max-w-shell items-center gap-10 p-7 sm:p-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-14 lg:p-14"
+      >
+        {data.hero.blackHole && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 z-0 hidden w-[52%] bg-gradient-to-r from-ink via-ink/85 to-transparent lg:block"
-          />
-        </>
-      )}
+            className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[52%] opacity-45 lg:block"
+          >
+            <BlackHole className="h-full w-full" />
+          </div>
+        )}
 
-      <div className="relative z-10 mx-auto w-full max-w-shell px-[var(--pad)]">
-        <motion.p
-          {...entra(0)}
-          className="m-0 mb-7 flex items-center gap-3 text-[.82rem] tracking-[.18em] text-muted"
-        >
-          <span className="h-px w-7 flex-none bg-brand" />
-          {data.brand.slogan}
-        </motion.p>
+        <div>
+          <motion.p
+            {...entra(0)}
+            className="m-0 mb-7 text-[.82rem] tracking-[.2em] text-white/70"
+          >
+            {data.brand.slogan}
+          </motion.p>
 
-        <motion.h1
-          {...entra(0.1)}
-          className="m-0 mb-7 max-w-[14ch] text-[clamp(2.6rem,8.6vw,6rem)] font-semibold leading-[1.02] tracking-[-.045em]"
-          style={{ fontVariationSettings: '"wdth" 110' }}
-        >
-          {antes}
-          {marcado && (
-            <span className="box-decoration-clone bg-brand px-[.18em] py-[.02em] text-white">
-              {marcado}
-            </span>
-          )}
-          {depois}
-        </motion.h1>
+          <motion.h1
+            {...entra(0.08)}
+            className="m-0 max-w-[13ch] text-[clamp(2.4rem,5.4vw,4.3rem)] font-bold leading-[.92] tracking-[-.04em]"
+            style={{ fontVariationSettings: '"wdth" 104' }}
+          >
+            {data.hero.title}
+          </motion.h1>
 
-        <motion.p
-          {...entra(0.2)}
-          className="m-0 mb-9 max-w-[44ch] text-[1.02rem] text-muted sm:text-[1.14rem]"
-        >
-          {data.hero.description}
-        </motion.p>
+          <motion.p
+            {...entra(0.16)}
+            className="m-0 mb-8 mt-7 max-w-[42ch] text-[1.02rem] text-white/85 sm:text-[1.12rem]"
+          >
+            {data.hero.description}
+          </motion.p>
 
-        <motion.div {...entra(0.3)} className="mb-10 flex flex-wrap gap-2.5">
-          {data.hero.badges.map((selo) => (
-            <span
-              key={selo}
-              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[.03] py-2 pl-2.5 pr-4 text-[.82rem] text-paper"
+          <motion.div {...entra(0.24)} className="mb-9 flex flex-wrap gap-2.5">
+            {data.hero.badges.map((selo) => (
+              <Badge key={selo}>{selo}</Badge>
+            ))}
+          </motion.div>
+
+          <motion.div {...entra(0.32)} className="flex flex-wrap gap-3">
+            <MagneticLink
+              href={wa}
+              external
+              className="w-full bg-white text-ink hover:bg-white/90 sm:w-auto"
             >
-              <span className="grid h-5 w-5 flex-none place-items-center rounded-full bg-brand">
-                <Check size={12} strokeWidth={3} className="text-white" />
-              </span>
-              {selo}
-            </span>
-          ))}
-        </motion.div>
+              <TextRoll>{data.hero.primaryCta}</TextRoll> <span aria-hidden>→</span>
+            </MagneticLink>
+            <MagneticLink
+              href="#servicos"
+              className="w-full ring-1 ring-inset ring-white/35 hover:bg-white/10 sm:w-auto"
+            >
+              <TextRoll>{data.hero.secondaryCta}</TextRoll>
+            </MagneticLink>
+          </motion.div>
+        </div>
 
-        <motion.div {...entra(0.38)} className="flex flex-wrap gap-3.5">
-          <MagneticLink
-            href={wa}
-            external
-            className="w-full bg-brand text-white hover:brightness-110 hover:shadow-[0_14px_44px_-14px_rgb(var(--brand)/.9)] sm:w-auto"
-          >
-            <TextRoll>{data.hero.primaryCta}</TextRoll> <span aria-hidden>→</span>
-          </MagneticLink>
-          <MagneticLink
-            href="#servicos"
-            className="w-full border border-white/25 text-paper hover:border-brand hover:bg-brand/10 sm:w-auto"
-          >
-            <TextRoll>{data.hero.secondaryCta}</TextRoll>
-          </MagneticLink>
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 34 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Screen>
+            <HeroScreen services={data.services.items.filter((s) => s.active)} />
+          </Screen>
         </motion.div>
+      </Panel>
+    </div>
+  );
+}
+
+/** Mock estatico: uma visao geral do que a CARVEX entrega. */
+function HeroScreen({ services }: { services: SiteData["services"]["items"] }) {
+  const barras = [28, 41, 34, 52, 44, 61, 50, 68, 58, 82, 71, 90];
+
+  return (
+    <div className="grid gap-3 text-paper">
+      <div className="flex items-center gap-2 border-b border-white/8 pb-3">
+        <span className="h-2 w-2 rotate-45 bg-brand" />
+        <span className="text-[.74rem] tracking-[.16em] text-muted">CARVEX</span>
+        <span className="ml-auto text-[.7rem] text-muted/70">exemplo</span>
       </div>
-    </section>
+
+      <div className="grid grid-cols-2 gap-2">
+        <div className="rounded-lg bg-white/[.03] p-3 ring-1 ring-inset ring-white/8">
+          <p className="m-0 text-[.66rem] text-muted">Tempo economizado</p>
+          <p className="m-0 mt-1 text-[1.25rem] font-semibold tabular-nums">18h / mês</p>
+        </div>
+        <div className="rounded-lg bg-white/[.03] p-3 ring-1 ring-inset ring-white/8">
+          <p className="m-0 text-[.66rem] text-muted">Processos no ar</p>
+          <p className="m-0 mt-1 text-[1.25rem] font-semibold tabular-nums">12</p>
+        </div>
+      </div>
+
+      <div className="rounded-lg bg-white/[.03] p-3 ring-1 ring-inset ring-white/8">
+        <div className="flex h-16 items-end gap-1.5">
+          {barras.map((h, i) => (
+            <span
+              key={i}
+              className="flex-1 rounded-sm bg-brand/70"
+              style={{ height: `${h}%` }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="grid gap-1.5">
+        {services.map((s) => (
+          <div
+            key={s.id}
+            className="flex items-center gap-2.5 rounded-lg bg-white/[.03] px-3 py-2.5 ring-1 ring-inset ring-white/8"
+          >
+            <span className="h-1.5 w-1.5 flex-none rotate-45 bg-brand" />
+            <span className="text-[.82rem]">{s.shortName}</span>
+            <span className="ml-auto text-[.7rem] text-muted">ativo</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

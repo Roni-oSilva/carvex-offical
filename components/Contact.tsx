@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Panel } from "./ui/panel";
 import { TextRoll } from "./ui/text-roll";
 import { cn, generateWhatsAppLink } from "@/lib/utils";
 import type { SiteData } from "@/lib/types";
@@ -72,25 +73,14 @@ export function Contact({ data }: { data: SiteData }) {
   ];
 
   return (
-    <section
-      id="contato"
-      className="relative overflow-hidden border-t border-white/10 bg-deep py-[clamp(72px,11vw,150px)]"
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 aspect-square w-[min(900px,140vw)] -translate-x-1/2 -translate-y-1/2"
-        style={{
-          background:
-            "radial-gradient(circle,rgb(var(--brand)/.3),rgb(var(--brand)/.06) 42%,transparent 66%)",
-        }}
-      />
-
-      <div className="relative z-10 mx-auto grid max-w-shell items-start gap-12 px-[var(--pad)] lg:grid-cols-[.9fr_1.1fr] lg:gap-[clamp(40px,6vw,90px)]">
+    <div id="contato" className="px-[var(--pad)] pt-[var(--pad)]">
+      <Panel className="mx-auto max-w-shell p-7 sm:p-10 lg:p-14">
+      <div className="grid items-start gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
         <div>
           <Reveal>
             <h2
-              className="m-0 max-w-[14ch] text-[clamp(2.1rem,6vw,3.8rem)] font-semibold leading-[.98] tracking-[-.04em]"
-              style={{ fontVariationSettings: '"wdth" 112' }}
+              className="m-0 max-w-[14ch] text-[clamp(2rem,5.6vw,3.6rem)] font-bold leading-[.93] tracking-[-.04em]"
+              style={{ fontVariationSettings: '"wdth" 106' }}
             >
               {data.contact.title}
             </h2>
@@ -198,6 +188,7 @@ export function Contact({ data }: { data: SiteData }) {
           </form>
         </Reveal>
       </div>
-    </section>
+      </Panel>
+    </div>
   );
 }

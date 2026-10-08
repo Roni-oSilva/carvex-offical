@@ -1,12 +1,26 @@
 export type Service = {
   id: string;
+  title: string;
+  shortName: string;
+  description: string;
+  badges: string[];
+  visual: "landing" | "dashboard" | "workflow" | "none";
+  whatsappMessage: string;
+  active: boolean;
+};
+
+export type ProcessStep = {
+  id: string;
   number: string;
   title: string;
   description: string;
-  icon: string;
-  tags: string[];
-  whatsappMessage: string;
   active: boolean;
+};
+
+export type IdentifyOption = {
+  id: string;
+  label: string;
+  whatsappMessage: string;
 };
 
 export type SiteData = {
@@ -14,7 +28,6 @@ export type SiteData = {
   theme: { primary: string; background: string; text: string; accent: string };
   hero: {
     title: string;
-    highlight: string;
     description: string;
     primaryCta: string;
     secondaryCta: string;
@@ -22,6 +35,8 @@ export type SiteData = {
     blackHole: boolean;
   };
   services: { title: string; description: string; items: Service[] };
+  process: { title: string; description: string; steps: ProcessStep[] };
+  identify: { title: string; description: string; options: IdentifyOption[] };
   contact: {
     title: string;
     description: string;

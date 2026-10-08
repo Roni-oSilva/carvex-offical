@@ -1,13 +1,14 @@
 # CARVEX — site institucional
 
-Uma página curta, sem banco de dados, sem login, sem painel.
+Uma página só, sem banco de dados, sem login, sem área administrativa.
 Todo o conteúdo mora em **`conteudo.json`**.
 
 ```
 conteudo.json  →  build  →  site no ar
 ```
 
-Três seções: **hero · serviços · contato**. Tudo leva ao WhatsApp.
+Cinco painéis: **hero · serviços · processo · diagnóstico · contato**.
+Tudo leva ao WhatsApp.
 
 ---
 
@@ -54,17 +55,25 @@ escrito** na tela. Esse pode ter parênteses e traço.
 ## O que dá para mudar
 
 Nome e slogan · logo · WhatsApp, e-mail e Instagram · as quatro cores ·
-o título do hero e qual palavra recebe o bloco azul · os três selos ·
-os três serviços (título, descrição, ícone, tags e a mensagem de WhatsApp
-que cada um dispara) · os textos de contato e rodapé.
+hero (título, descrição, botões e os três selos) · os três serviços ·
+as etapas do processo · as frases do diagnóstico · contato e rodapé.
 
-Para esconder um serviço, troque `"ativo": true` por `false`.
+Para esconder um serviço ou uma etapa, troque `"ativo": true` por `false`.
 
-### A palavra destacada no título
+### Cada serviço tem dois nomes
 
-O campo `destaque` precisa ser **um pedaço exato** do `titulo`. Se você
-mudar o título e esquecer de ajustar o destaque, o bloco azul some — o
-título continua aparecendo normal, só sem o realce.
+- `nomeCurto` é a etiqueta discreta no topo do painel e o nome no rodapé
+  ("Landing Pages")
+- `titulo` é a manchete grande do painel ("Páginas que viram cliente")
+
+O campo `visual` escolhe a tela animada dentro do painel: `landing`,
+`dashboard`, `workflow` ou `none`.
+
+### Títulos curtos funcionam melhor
+
+Os painéis usam tipografia de pôster. Um título com mais de oito palavras
+quebra em linhas demais e perde o impacto. Se precisar explicar mais, use
+a `descricao` logo abaixo.
 
 ### Trocar a logo
 
@@ -111,9 +120,16 @@ preenchido. Sem backend, sem armazenar lead.
 
 Next.js 16 · React 19 · TypeScript · Tailwind · Motion · Lucide.
 
-### Seções removidas
+### A forma do site
 
-As seções longas (complexidade, processo, diamante, sobre, diagnóstico) e
-os três visuais animados dos serviços foram retirados para encurtar a
-página. Eles continuam no histórico do git — se quiser algum de volta,
-dá para recuperar do commit anterior a este.
+A unidade de composição é o **painel** (`components/ui/panel.tsx`): um
+bloco de cantos muito arredondados, em dois tons. Azul para os momentos de
+afirmação, escuro para o que exige leitura calma. Eles se alternam na
+pilha para dar ritmo.
+
+Dentro dos painéis entram **telas escuras** (`Screen`) com os mockups que
+se montam durante o scroll — a landing page sendo construída, o painel de
+dados e o fluxo de automação, em `components/visuals/`.
+
+As seções de complexidade, diamante e sobre continuam no histórico do git,
+caso um dia façam falta.

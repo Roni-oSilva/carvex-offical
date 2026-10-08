@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* Sobrescritos em runtime pelo tema salvo no admin. */
+  /* Definidos em conteudo.json e aplicados em app/page.tsx. */
   --brand: 8 104 247;
   --ink: 2 5 10;
   --deep: 3 21 47;
   --paper: 255 255 255;
   --muted: 156 168 186;
-  --pad: clamp(20px, 5vw, 64px);
+  --pad: clamp(16px, 3.6vw, 40px);
+  /* Azul mais escuro, para profundidade dentro dos paineis azuis. */
+  --brand-deep: 6 58 150;
 }
 
 * { box-sizing: border-box; }

@@ -10,6 +10,7 @@ import type { SiteData } from "@/lib/types";
 const LINKS = [
   { href: "#inicio", label: "Início" },
   { href: "#servicos", label: "Serviços" },
+  { href: "#processo", label: "Processo" },
   { href: "#contato", label: "Contato" },
 ];
 

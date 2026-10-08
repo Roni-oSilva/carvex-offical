@@ -15,7 +15,11 @@ const config: Config = {
       fontFamily: {
         sans: ["Archivo", "system-ui", "sans-serif"],
       },
-      maxWidth: { shell: "1200px" },
+      maxWidth: { shell: "1240px" },
+      borderRadius: {
+        panel: "clamp(26px, 3.4vw, 46px)",
+        slab: "clamp(18px, 2.2vw, 28px)",
+      },
     },
   },
   plugins: [],

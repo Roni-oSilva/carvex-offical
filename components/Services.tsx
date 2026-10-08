@@ -1,87 +1,136 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useScroll } from "motion/react";
+import { Badge, Panel, Screen } from "./ui/panel";
+import { LandingVisual } from "./visuals/LandingVisual";
+import { DashboardVisual } from "./visuals/DashboardVisual";
+import { WorkflowVisual } from "./visuals/WorkflowVisual";
 import { Reveal } from "./Reveal";
-import { Icon } from "./ui/icon";
 import { generateWhatsAppLink } from "@/lib/utils";
-import type { SiteData } from "@/lib/types";
+import type { Service, SiteData } from "@/lib/types";
 
-/** Tres blocos compactos. Cada um abre o WhatsApp no assunto certo. */
+/**
+ * Cada servico e um painel-poster: titulo grande em cima, selos,
+ * e a tela escura embaixo com o mockup que se monta durante o scroll.
+ * Alternam azul e escuro para dar ritmo a pilha.
+ */
 export function Services({ data }: { data: SiteData }) {
   const items = data.services.items.filter((s) => s.active);
   if (!items.length) return null;
 
   return (
-    <section
-      id="servicos"
-      className="relative border-t border-white/10 py-[clamp(64px,10vw,128px)]"
-    >
-      <div className="mx-auto max-w-shell px-[var(--pad)]">
+    <div id="servicos" className="px-[var(--pad)] pt-[clamp(56px,8vw,112px)]">
+      <div className="mx-auto max-w-shell">
         <Reveal>
-          <p className="m-0 mb-[18px] flex items-center gap-3 text-[.86rem] text-muted">
-            <span className="h-px w-6 flex-none bg-brand" />
-            Serviços
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
           <h2
-            className="m-0 max-w-[16ch] text-[clamp(2.1rem,6vw,3.8rem)] font-semibold leading-[.98] tracking-[-.04em]"
-            style={{ fontVariationSettings: '"wdth" 112' }}
+            className="m-0 max-w-[16ch] text-[clamp(2rem,5.6vw,3.6rem)] font-bold leading-[.95] tracking-[-.04em]"
+            style={{ fontVariationSettings: '"wdth" 106' }}
           >
             {data.services.title}
           </h2>
         </Reveal>
-        <Reveal delay={0.16}>
+        <Reveal delay={0.08}>
           <p className="mt-5 max-w-[48ch] text-muted">{data.services.description}</p>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid gap-[var(--pad)] lg:grid-cols-3">
           {items.map((s, i) => (
-            <Reveal key={s.id} delay={i * 0.09}>
-              <a
-                href={generateWhatsAppLink(data.contact.whatsapp, s.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-lg border border-white/10 bg-gradient-to-b from-deep/55 to-ink/20 p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-brand/55 hover:shadow-[0_26px_60px_-30px_rgb(var(--brand)/.85)]"
-              >
-                <div className="mb-6 flex items-center justify-between">
-                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-brand/12 transition-colors group-hover:bg-brand/20">
-                    <Icon name={s.icon} className="h-5 w-5 text-brand" />
-                  </span>
-                  <span className="text-[.78rem] font-semibold tracking-[.16em] text-brand">
-                    {s.number}
-                  </span>
-                </div>
-
-                <h3
-                  className="m-0 mb-3 text-[1.38rem] font-semibold leading-tight tracking-[-.02em]"
-                  style={{ fontVariationSettings: '"wdth" 106' }}
-                >
-                  {s.title}
-                </h3>
-                <p className="m-0 text-[.97rem] text-muted">{s.description}</p>
-
-                <div className="mt-7 flex flex-wrap gap-1.5 border-t border-white/8 pt-5">
-                  {s.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-white/10 px-2.5 py-1 text-[.74rem] text-muted transition-colors group-hover:border-white/25 group-hover:text-paper"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <span className="mt-6 inline-flex items-center gap-2 text-[.92rem] text-brand">
-                  Falar sobre isso
-                  <span className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden>
-                    →
-                  </span>
-                </span>
-              </a>
-            </Reveal>
+            <ServicePanel key={s.id} service={s} data={data} index={i} />
           ))}
         </div>
       </div>
-    </section>
+    </div>
+  );
+}
+
+function ServicePanel({
+  service,
+  data,
+  index,
+}: {
+  service: Service;
+  data: SiteData;
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const azul = index % 2 === 0;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 26 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <Panel
+        tone={azul ? "blue" : "dark"}
+        glow={azul}
+        className="flex h-full flex-col gap-7 p-6 sm:p-8"
+      >
+        <div>
+          <p
+            className={
+              "m-0 mb-5 text-[.78rem] tracking-[.18em] " +
+              (azul ? "text-white/65" : "text-muted")
+            }
+          >
+            {service.shortName}
+          </p>
+          <h3
+            className="m-0 text-[clamp(1.6rem,3.2vw,2.3rem)] font-bold leading-[.98] tracking-[-.035em]"
+            style={{ fontVariationSettings: '"wdth" 104' }}
+          >
+            {service.title}
+          </h3>
+          <p
+            className={
+              "mt-4 max-w-[34ch] text-[.97rem] " + (azul ? "text-white/80" : "text-muted")
+            }
+          >
+            {service.description}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {service.badges.map((b) => (
+            <Badge key={b} tone={azul ? "onBlue" : "onDark"}>
+              {b}
+            </Badge>
+          ))}
+        </div>
+
+        {service.visual !== "none" && (
+          <Screen className="mt-auto">
+            {service.visual === "landing" && <LandingVisual p={scrollYProgress} />}
+            {service.visual === "dashboard" && <DashboardVisual p={scrollYProgress} />}
+            {service.visual === "workflow" && <WorkflowVisual p={scrollYProgress} />}
+          </Screen>
+        )}
+
+        <a
+          href={generateWhatsAppLink(data.contact.whatsapp, service.whatsappMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={
+            "group inline-flex items-center gap-2 self-start border-b pb-1.5 text-[.95rem] transition-colors " +
+            (azul
+              ? "border-white/35 text-white hover:border-white"
+              : "border-white/20 text-paper hover:border-brand")
+          }
+        >
+          Falar sobre isso
+          <span className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden>
+            →
+          </span>
+        </a>
+      </Panel>
+    </motion.div>
   );
 }

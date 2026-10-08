@@ -28,7 +28,7 @@ export function Footer({ data }: { data: SiteData }) {
           <h4 className="m-0 mb-3.5 text-[.85rem] font-semibold">Servicos</h4>
           {services.map((s) => (
             <a key={s.id} href="#servicos" className="mb-2 block text-[.93rem] text-muted transition-colors hover:text-paper">
-              {s.title}
+              {s.shortName}
             </a>
           ))}
         </div>

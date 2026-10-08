@@ -1,5 +1,5 @@
 import bruto from "@/conteudo.json";
-import type { SiteData } from "./types";
+import type { Service, SiteData } from "./types";
 
 /**
  * Le o conteudo.json e converte para a forma que os componentes esperam.
@@ -25,7 +25,6 @@ export function getSiteData(): SiteData {
     },
     hero: {
       title: c.hero.titulo,
-      highlight: c.hero.destaque,
       description: c.hero.descricao,
       primaryCta: c.hero.botaoPrincipal,
       secondaryCta: c.hero.botaoSecundario,
@@ -37,13 +36,33 @@ export function getSiteData(): SiteData {
       description: c.servicos.descricao,
       items: c.servicos.itens.map((s, i) => ({
         id: `servico-${i}`,
-        number: s.numero,
         title: s.titulo,
+        shortName: s.nomeCurto,
         description: s.descricao,
-        icon: s.icone,
-        tags: s.tags,
+        badges: s.selos,
+        visual: s.visual as Service["visual"],
         whatsappMessage: s.mensagemWhatsapp,
         active: s.ativo,
+      })),
+    },
+    process: {
+      title: c.processo.titulo,
+      description: c.processo.descricao,
+      steps: c.processo.etapas.map((e, i) => ({
+        id: `etapa-${i}`,
+        number: String(i + 1).padStart(2, "0"),
+        title: e.titulo,
+        description: e.descricao,
+        active: e.ativo,
+      })),
+    },
+    identify: {
+      title: c.diagnostico.titulo,
+      description: c.diagnostico.descricao,
+      options: c.diagnostico.opcoes.map((o, i) => ({
+        id: `opcao-${i}`,
+        label: o.frase,
+        whatsappMessage: o.mensagemWhatsapp,
       })),
     },
     contact: {
