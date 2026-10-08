@@ -8,10 +8,8 @@ import { cn, generateWhatsAppLink } from "@/lib/utils";
 import type { SiteData } from "@/lib/types";
 
 const LINKS = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#servicos", label: "Servicos" },
-  { href: "#processo", label: "Processo" },
-  { href: "#sobre", label: "Sobre" },
+  { href: "#inicio", label: "Início" },
+  { href: "#servicos", label: "Serviços" },
   { href: "#contato", label: "Contato" },
 ];
 

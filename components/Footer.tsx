@@ -3,7 +3,7 @@ import { generateWhatsAppLink } from "@/lib/utils";
 import type { SiteData } from "@/lib/types";
 
 export function Footer({ data }: { data: SiteData }) {
-  const services = data.services.items.filter((s) => s.active).sort((a, b) => a.order - b.order);
+  const services = data.services.items.filter((s) => s.active);
 
   return (
     <footer className="border-t border-white/10 px-[var(--pad)] pb-10 pt-16">

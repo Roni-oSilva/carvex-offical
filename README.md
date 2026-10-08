@@ -1,11 +1,13 @@
 # CARVEX — site institucional
 
-Uma página só, sem banco de dados, sem login, sem painel.
-Todo o conteúdo do site mora em **`conteudo.json`**.
+Uma página curta, sem banco de dados, sem login, sem painel.
+Todo o conteúdo mora em **`conteudo.json`**.
 
 ```
 conteudo.json  →  build  →  site no ar
 ```
+
+Três seções: **hero · serviços · contato**. Tudo leva ao WhatsApp.
 
 ---
 
@@ -13,13 +15,13 @@ conteudo.json  →  build  →  site no ar
 
 Você não precisa instalar nada nem abrir editor de código.
 
-1. Abra seu repositório em **github.com**
+1. Abra este repositório em **github.com**
 2. Clique em **`conteudo.json`**
 3. Clique no ícone de **lápis** (canto superior direito)
 4. Altere o texto entre as aspas
 5. Desça e clique em **Commit changes**
 
-A Vercel republica o site sozinha em cerca de 40 segundos. Só isso.
+A Vercel republica o site sozinha em cerca de 40 segundos.
 
 ### Três regras para não quebrar o arquivo
 
@@ -29,36 +31,55 @@ A Vercel republica o site sozinha em cerca de 40 segundos. Só isso.
 
 Se o deploy falhar, foi vírgula ou chave apagada sem querer.
 No GitHub vá em **Commits**, abra o anterior e clique em **Revert**.
-O site volta ao que era em um clique.
+
+---
+
+## O número do WhatsApp
+
+Esse é o campo que mais dá problema. Ele precisa de **três partes coladas,
+só números**:
+
+```
+55   +   91   +   981902529     →   "whatsapp": "5591981902529"
+país     DDD     seu número
+```
+
+Sem o `55` na frente, o link do WhatsApp não abre.
+
+O campo `whatsappVisivel` é outra coisa: é só como o número **aparece
+escrito** na tela. Esse pode ter parênteses e traço.
 
 ---
 
 ## O que dá para mudar
 
 Nome e slogan · logo · WhatsApp, e-mail e Instagram · as quatro cores ·
-todos os textos do hero, serviços, processo, diamante, sobre, diagnóstico,
-CTA e rodapé · as tags de cada serviço · a mensagem de WhatsApp que cada
-botão dispara · quais seções aparecem no site.
+o título do hero e qual palavra recebe o bloco azul · os três selos ·
+os três serviços (título, descrição, ícone, tags e a mensagem de WhatsApp
+que cada um dispara) · os textos de contato e rodapé.
 
-Para esconder uma seção inteira, troque `true` por `false` em
-`secoesVisiveis`.
+Para esconder um serviço, troque `"ativo": true` por `false`.
+
+### A palavra destacada no título
+
+O campo `destaque` precisa ser **um pedaço exato** do `titulo`. Se você
+mudar o título e esquecer de ajustar o destaque, o bloco azul some — o
+título continua aparecendo normal, só sem o realce.
 
 ### Trocar a logo
 
-Coloque o arquivo dentro da pasta `public/` e escreva o nome em
-`marca.logo`, começando com barra:
+Coloque o arquivo na pasta `public/` e escreva o nome em `marca.logo`,
+começando com barra:
 
 ```json
 "logo": "/minha-logo.png"
 ```
 
-Deixando vazio, o site usa o diamante desenhado em SVG.
+Vazio, o site usa o diamante desenhado em SVG.
 
 ---
 
 ## Rodar no seu computador (opcional)
-
-Só é necessário se você quiser ver as mudanças antes de publicar.
 
 ```bash
 npm install
@@ -69,40 +90,19 @@ Abre em `http://localhost:3000`.
 
 ## Publicar
 
-Importe o repositório na Vercel e pronto. **Nenhuma variável de ambiente
-é necessária.** O site é estático: as páginas são geradas no build, então
-não existe servidor consultando banco a cada visita.
+Importe o repositório na Vercel. **Nenhuma variável de ambiente é
+necessária.** O site é estático: as páginas são geradas no build, não há
+servidor consultando banco a cada visita.
 
 ---
-
-## A narrativa do index
-
-Não é uma pilha de seções — é uma história contada pelo scroll.
-
-```
-HERO            impacto — o título entra palavra por palavra
-COMPLEXIDADE    o problema — pontos se espalham, conectam, viram caos
-                e então se organizam no diamante
-SERVIÇOS        a resposta — três blocos, cada um com um visual que
-                se constrói durante o scroll
-PROCESSO        o método — Lapidar recebe peso visual dominante
-DIAMANTE        a marca — o símbolo cresce, se fragmenta e se reúne
-SOBRE           DESIGN · DATA · AUTOMATION em letras enormes
-DIAGNÓSTICO     o visitante escolhe a própria dor
-CTA + CONTATO   conversão
-```
-
-Cada animação está presa ao scroll. O visitante controla o ritmo.
 
 ## Detalhes técnicos
 
 **Black Hole** (`components/ui/black-hole.tsx`) — canvas 2D com disco de
-acreção, linhas orbitais, grid e glow. Desktop: ~800 partículas com
-parallax de mouse. Mobile: ~240, sem mouse tracking, DPR limitado a 1.5.
-
-**Complexidade** (`components/Complexity.tsx`) — cada ponto tem uma posição
-inicial dispersa e uma posição-alvo sobre o contorno do diamante. O scroll
-interpola entre as duas, passando por uma fase de ruído que cria o caos.
+acreção, linhas orbitais, grid e glow, ocupando a direita do hero.
+Desktop: ~800 partículas com parallax de mouse. Mobile: ~240, sem mouse
+tracking, DPR limitado a 1.5. Com `prefers-reduced-motion`, desenha um
+quadro e para.
 
 **Formulário de contato** — monta a mensagem e abre o WhatsApp já
 preenchido. Sem backend, sem armazenar lead.
@@ -110,3 +110,10 @@ preenchido. Sem backend, sem armazenar lead.
 **Fonte** — Archivo variável, carregada por `<link>` no `app/layout.tsx`.
 
 Next.js 16 · React 19 · TypeScript · Tailwind · Motion · Lucide.
+
+### Seções removidas
+
+As seções longas (complexidade, processo, diamante, sobre, diagnóstico) e
+os três visuais animados dos serviços foram retirados para encurtar a
+página. Eles continuam no histórico do git — se quiser algum de volta,
+dá para recuperar do commit anterior a este.

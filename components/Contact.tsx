@@ -5,26 +5,31 @@ import { Instagram, Mail, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { TextRoll } from "./ui/text-roll";
 import { cn, generateWhatsAppLink } from "@/lib/utils";
-import { WHATSAPP_VISIVEL } from "@/lib/conteudo";
 import type { SiteData } from "@/lib/types";
 
 type Errors = Partial<Record<"nome" | "mensagem" | "contato", string>>;
 
+const campo =
+  "w-full rounded border-0 border-b border-white/30 bg-transparent px-0.5 py-3 text-base " +
+  "text-paper placeholder:text-muted/45 transition-colors focus:border-brand focus:outline-none";
+
 export function Contact({ data }: { data: SiteData }) {
   const [form, setForm] = useState({ nome: "", empresa: "", mensagem: "", contato: "" });
   const [errors, setErrors] = useState<Errors>({});
-  const [note, setNote] = useState("Abre o WhatsApp com a mensagem ja escrita.");
+  const [note, setNote] = useState("Abre o WhatsApp com a mensagem já escrita.");
 
-  const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((f) => ({ ...f, [k]: e.target.value }));
-    setErrors((x) => ({ ...x, [k]: undefined }));
-  };
+  const set =
+    (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setForm((f) => ({ ...f, [k]: e.target.value }));
+      setErrors((x) => ({ ...x, [k]: undefined }));
+    };
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const next: Errors = {};
     if (!form.nome.trim()) next.nome = "Precisamos do seu nome para responder.";
-    if (!form.mensagem.trim()) next.mensagem = "Conte rapidamente o que voce precisa.";
+    if (!form.mensagem.trim()) next.mensagem = "Conte rapidamente o que você precisa.";
     if (!form.contato.trim()) next.contato = "Deixe um canal para retornarmos.";
     setErrors(next);
     if (Object.keys(next).length) return;
@@ -37,22 +42,24 @@ export function Contact({ data }: { data: SiteData }) {
       `Contato: ${form.contato}`;
 
     window.open(generateWhatsAppLink(data.contact.whatsapp, texto), "_blank", "noopener");
-    setNote("Mensagem pronta no WhatsApp. E so enviar que retornamos em breve.");
+    setNote("Mensagem pronta no WhatsApp. É só enviar que retornamos em breve.");
   };
 
-  const channels = [
+  const instagram = data.contact.instagram.replace("@", "");
+
+  const canais = [
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      value: WHATSAPP_VISIVEL,
+      value: data.contact.whatsappLabel,
       href: generateWhatsAppLink(data.contact.whatsapp, data.contact.defaultMessage),
       external: true,
     },
     {
       icon: Instagram,
       label: "Instagram",
-      value: `@${data.contact.instagram.replace("@", "")}`,
-      href: `https://instagram.com/${data.contact.instagram.replace("@", "")}`,
+      value: `@${instagram}`,
+      href: `https://instagram.com/${instagram}`,
       external: true,
     },
     {
@@ -65,33 +72,43 @@ export function Contact({ data }: { data: SiteData }) {
   ];
 
   return (
-    <section id="contato" className="border-t border-white/10 bg-deep py-[clamp(64px,11vw,150px)]">
-      <div className="mx-auto grid max-w-shell items-start gap-10 px-[var(--pad)] lg:grid-cols-[.8fr_1.2fr] lg:gap-[clamp(36px,6vw,90px)]">
+    <section
+      id="contato"
+      className="relative overflow-hidden border-t border-white/10 bg-deep py-[clamp(72px,11vw,150px)]"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 aspect-square w-[min(900px,140vw)] -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background:
+            "radial-gradient(circle,rgb(var(--brand)/.3),rgb(var(--brand)/.06) 42%,transparent 66%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto grid max-w-shell items-start gap-12 px-[var(--pad)] lg:grid-cols-[.9fr_1.1fr] lg:gap-[clamp(40px,6vw,90px)]">
         <div>
           <Reveal>
-            <p className="m-0 mb-[18px] flex items-center gap-3 text-[.86rem] text-muted">
-              <span className="h-px w-6 flex-none bg-brand" />
-              Contato
-            </p>
-          </Reveal>
-          <Reveal delay={0.09}>
             <h2
-              className="m-0 text-[clamp(2.15rem,6vw,4.2rem)] font-semibold leading-[.95] tracking-[-.035em]"
+              className="m-0 max-w-[14ch] text-[clamp(2.1rem,6vw,3.8rem)] font-semibold leading-[.98] tracking-[-.04em]"
               style={{ fontVariationSettings: '"wdth" 112' }}
             >
               {data.contact.title}
             </h2>
           </Reveal>
-          <Reveal delay={0.18}>
-            <div className="mt-8 flex flex-col">
-              {channels.map((c, i) => (
+          <Reveal delay={0.08}>
+            <p className="mt-5 max-w-[40ch] text-muted">{data.contact.description}</p>
+          </Reveal>
+
+          <Reveal delay={0.16}>
+            <div className="mt-9 flex flex-col">
+              {canais.map((c, i) => (
                 <a
                   key={c.label}
                   href={c.href}
                   target={c.external ? "_blank" : undefined}
                   rel={c.external ? "noopener noreferrer" : undefined}
                   className={cn(
-                    "group flex items-center justify-between gap-3.5 border-b border-white/10 py-4 transition-colors hover:border-brand",
+                    "group flex items-center justify-between gap-4 border-b border-white/10 py-4 transition-colors hover:border-brand",
                     i === 0 && "border-t"
                   )}
                 >
@@ -108,33 +125,67 @@ export function Contact({ data }: { data: SiteData }) {
           </Reveal>
         </div>
 
-        <Reveal delay={0.09}>
+        <Reveal delay={0.08}>
           <form onSubmit={submit} noValidate className="grid gap-5">
             <div>
-              <label htmlFor="nome" className="mb-2 block text-sm text-muted">Nome</label>
-              <input id="nome" value={form.nome} onChange={set("nome")} placeholder="Como podemos te chamar" className="w-full rounded border-0 border-b border-white/30 bg-transparent px-0.5 py-3 text-base text-paper placeholder:text-muted/45 transition-colors focus:border-brand focus:outline-none" />
+              <label htmlFor="nome" className="mb-2 block text-sm text-muted">
+                Nome
+              </label>
+              <input
+                id="nome"
+                value={form.nome}
+                onChange={set("nome")}
+                placeholder="Como podemos te chamar"
+                className={campo}
+              />
               {errors.nome && <p className="mt-2 text-[.83rem] text-rose-300">{errors.nome}</p>}
             </div>
+
             <div>
-              <label htmlFor="empresa" className="mb-2 block text-sm text-muted">Empresa</label>
-              <input id="empresa" value={form.empresa} onChange={set("empresa")} placeholder="Opcional" className="w-full rounded border-0 border-b border-white/30 bg-transparent px-0.5 py-3 text-base text-paper placeholder:text-muted/45 transition-colors focus:border-brand focus:outline-none" />
+              <label htmlFor="empresa" className="mb-2 block text-sm text-muted">
+                Empresa
+              </label>
+              <input
+                id="empresa"
+                value={form.empresa}
+                onChange={set("empresa")}
+                placeholder="Opcional"
+                className={campo}
+              />
             </div>
+
             <div>
-              <label htmlFor="mensagem" className="mb-2 block text-sm text-muted">Mensagem</label>
+              <label htmlFor="mensagem" className="mb-2 block text-sm text-muted">
+                Mensagem
+              </label>
               <textarea
                 id="mensagem"
                 value={form.mensagem}
                 onChange={set("mensagem")}
-                placeholder="Uma landing page, um dashboard, uma automação — ou uma ideia ainda sem nome."
-                className="w-full rounded border-0 border-b border-white/30 bg-transparent px-0.5 py-3 text-base text-paper placeholder:text-muted/45 transition-colors focus:border-brand focus:outline-none min-h-[96px] resize-y leading-relaxed"
+                placeholder="Uma landing page, um painel de dados, uma automação — ou uma ideia ainda sem nome."
+                className={cn(campo, "min-h-[96px] resize-y leading-relaxed")}
               />
-              {errors.mensagem && <p className="mt-2 text-[.83rem] text-rose-300">{errors.mensagem}</p>}
+              {errors.mensagem && (
+                <p className="mt-2 text-[.83rem] text-rose-300">{errors.mensagem}</p>
+              )}
             </div>
+
             <div>
-              <label htmlFor="contato" className="mb-2 block text-sm text-muted">WhatsApp ou e-mail</label>
-              <input id="contato" value={form.contato} onChange={set("contato")} placeholder="Onde devemos responder" className="w-full rounded border-0 border-b border-white/30 bg-transparent px-0.5 py-3 text-base text-paper placeholder:text-muted/45 transition-colors focus:border-brand focus:outline-none" />
-              {errors.contato && <p className="mt-2 text-[.83rem] text-rose-300">{errors.contato}</p>}
+              <label htmlFor="contato" className="mb-2 block text-sm text-muted">
+                WhatsApp ou e-mail
+              </label>
+              <input
+                id="contato"
+                value={form.contato}
+                onChange={set("contato")}
+                placeholder="Onde devemos responder"
+                className={campo}
+              />
+              {errors.contato && (
+                <p className="mt-2 text-[.83rem] text-rose-300">{errors.contato}</p>
+              )}
             </div>
+
             <div className="flex flex-wrap items-center gap-4">
               <button
                 type="submit"

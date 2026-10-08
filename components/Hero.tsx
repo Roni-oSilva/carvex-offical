@@ -1,84 +1,102 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { Check } from "lucide-react";
 import { BlackHole } from "./ui/black-hole";
 import { TextRoll } from "./ui/text-roll";
 import { MagneticLink } from "./MagneticButton";
 import { generateWhatsAppLink } from "@/lib/utils";
 import type { SiteData } from "@/lib/types";
 
+/**
+ * Divide o titulo em tres partes: antes do destaque, o destaque, depois.
+ * O destaque recebe um bloco azul atras. Se o texto do destaque nao
+ * existir dentro do titulo, o titulo e renderizado inteiro, sem bloco.
+ */
+function dividirTitulo(titulo: string, destaque: string) {
+  if (!destaque) return { antes: titulo, marcado: "", depois: "" };
+  const i = titulo.indexOf(destaque);
+  if (i === -1) return { antes: titulo, marcado: "", depois: "" };
+  return {
+    antes: titulo.slice(0, i),
+    marcado: destaque,
+    depois: titulo.slice(i + destaque.length),
+  };
+}
+
 export function Hero({ data }: { data: SiteData }) {
   const reduce = useReducedMotion();
-  const ref = useRef<HTMLElement>(null);
   const wa = generateWhatsAppLink(data.contact.whatsapp, data.contact.defaultMessage);
-
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const parallax = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  // O titulo entra palavra por palavra, com blur.
-  const palavras = data.hero.title.split(" ");
+  const { antes, marcado, depois } = dividirTitulo(data.hero.title, data.hero.highlight);
 
   const entra = (delay: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 26, filter: "blur(10px)" },
+    initial: reduce ? false : { opacity: 0, y: 24, filter: "blur(8px)" },
     animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-    transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] as const },
   });
 
   return (
     <section
-      ref={ref}
       id="inicio"
-      className="relative flex min-h-[94svh] items-center overflow-hidden pb-24 pt-[132px] md:min-h-svh"
+      className="relative flex min-h-[92svh] items-center overflow-hidden pb-20 pt-[124px] md:min-h-svh"
     >
       {data.hero.blackHole && (
         <>
-          {/* composicao: o canvas ocupa a metade direita no desktop */}
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[62%]">
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[58%]">
             <BlackHole className="h-full w-full" />
           </div>
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 z-0 hidden w-[46%] bg-gradient-to-r from-ink via-ink/85 to-transparent lg:block"
+            className="pointer-events-none absolute inset-y-0 left-0 z-0 hidden w-[52%] bg-gradient-to-r from-ink via-ink/85 to-transparent lg:block"
           />
         </>
       )}
 
-      <motion.div
-        style={{ y: parallax, opacity: fade }}
-        className="relative z-10 mx-auto w-full max-w-shell px-[var(--pad)]"
-      >
+      <div className="relative z-10 mx-auto w-full max-w-shell px-[var(--pad)]">
         <motion.p
           {...entra(0)}
-          className="m-0 mb-6 flex items-center gap-3 text-[.84rem] tracking-[.16em] text-muted"
+          className="m-0 mb-7 flex items-center gap-3 text-[.82rem] tracking-[.18em] text-muted"
         >
           <span className="h-px w-7 flex-none bg-brand" />
           {data.brand.slogan}
         </motion.p>
 
-        <h1
-          className="m-0 mb-7 max-w-[13ch] text-[clamp(2.7rem,9vw,6.6rem)] font-semibold leading-[.94] tracking-[-.045em]"
+        <motion.h1
+          {...entra(0.1)}
+          className="m-0 mb-7 max-w-[14ch] text-[clamp(2.6rem,8.6vw,6rem)] font-semibold leading-[1.02] tracking-[-.045em]"
           style={{ fontVariationSettings: '"wdth" 110' }}
         >
-          {palavras.map((palavra, i) => (
-            <motion.span key={`${palavra}-${i}`} {...entra(0.12 + i * 0.13)} className="mr-[.24em] inline-block">
-              {palavra}
-            </motion.span>
-          ))}
-        </h1>
+          {antes}
+          {marcado && (
+            <span className="box-decoration-clone bg-brand px-[.18em] py-[.02em] text-white">
+              {marcado}
+            </span>
+          )}
+          {depois}
+        </motion.h1>
 
         <motion.p
-          {...entra(0.14 + palavras.length * 0.13)}
-          className="m-0 mb-10 max-w-[46ch] text-[1.02rem] text-muted sm:text-[1.16rem]"
+          {...entra(0.2)}
+          className="m-0 mb-9 max-w-[44ch] text-[1.02rem] text-muted sm:text-[1.14rem]"
         >
           {data.hero.description}
         </motion.p>
 
-        <motion.div
-          {...entra(0.24 + palavras.length * 0.13)}
-          className="flex flex-wrap gap-3.5"
-        >
+        <motion.div {...entra(0.3)} className="mb-10 flex flex-wrap gap-2.5">
+          {data.hero.badges.map((selo) => (
+            <span
+              key={selo}
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[.03] py-2 pl-2.5 pr-4 text-[.82rem] text-paper"
+            >
+              <span className="grid h-5 w-5 flex-none place-items-center rounded-full bg-brand">
+                <Check size={12} strokeWidth={3} className="text-white" />
+              </span>
+              {selo}
+            </span>
+          ))}
+        </motion.div>
+
+        <motion.div {...entra(0.38)} className="flex flex-wrap gap-3.5">
           <MagneticLink
             href={wa}
             external
@@ -93,16 +111,7 @@ export function Hero({ data }: { data: SiteData }) {
             <TextRoll>{data.hero.secondaryCta}</TextRoll>
           </MagneticLink>
         </motion.div>
-      </motion.div>
-
-      {/* indicador de scroll */}
-      <motion.div
-        style={{ opacity: fade }}
-        className="absolute bottom-8 left-[var(--pad)] z-10 flex items-center gap-3 text-[.78rem] text-muted/60"
-      >
-        <span className="h-px w-9 bg-white/20" />
-        Role para comecar
-      </motion.div>
+      </div>
     </section>
   );
 }
