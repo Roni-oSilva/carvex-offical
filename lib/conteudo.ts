@@ -46,23 +46,9 @@ export function getSiteData(): SiteData {
         deliverables: s.entregas,
         leadTime: s.prazo,
         visual: s.visual as Service["visual"],
-        link: s.link ?? "",
-        linkText: s.textoLink ?? "",
         whatsappMessage: s.mensagemWhatsapp,
         active: s.ativo,
       })),
-    },
-    pricing: {
-      title: c.precos.titulo,
-      description: c.precos.descricao,
-      items: c.precos.itens.map((i, n) => ({
-        id: `preco-${n}`,
-        name: i.nome,
-        price: i.valor,
-        detail: i.detalhe,
-        note: i.observacao,
-      })),
-      footnote: c.precos.rodape,
     },
     limits: {
       title: c.limites.titulo,

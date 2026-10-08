@@ -7,28 +7,18 @@ Todo o conteúdo mora em **`conteudo.json`**.
 conteudo.json  →  build  →  site no ar
 ```
 
-Onze estações, presas a uma linha que atravessa a página:
+Nove estações, presas a uma linha que atravessa a página:
 
 ```
-abertura · o problema · o que fazemos · preço · ferramentas
-como funciona · sem enrolação · para quem · dúvidas · começar · contato
+abertura · o problema · o que fazemos · ferramentas · como funciona
+sem enrolação · para quem · dúvidas · começar · contato
 ```
-
-A CARVEX vende quatro coisas. Os **robôs de WhatsApp** têm site próprio
-em robos-carvex.vercel.app, e o serviço aponta para lá.
 
 ---
 
 ## Antes de divulgar o site
 
-### Os preços têm que bater com o outro site
-
-Os valores dos robôs (`R$ 490`, `R$ 129/mês`, `R$ 1.490`) vieram de
-**robos-carvex.vercel.app**. Se você mudar o preço lá, mude aqui também.
-Dois preços diferentes para o mesmo produto derrubam a confiança na hora,
-e o visitante vai achar que um dos dois está errado de propósito.
-
-### O resto são promessas suas
+## Antes de divulgar: o que é promessa sua
 
 - os **prazos** de cada serviço (campo `prazo`)
 - tudo o que está em **`limites`** — são promessas ao contrário, e é
@@ -92,16 +82,8 @@ toda semana" funciona; "falta de eficiência" não.
 
 **`servicos`** — cada um tem `nomeCurto` (a etiqueta e o nome no rodapé),
 `titulo` (a manchete), `entregas` (o que chega na mão do cliente), `prazo`
-e `visual`. O `visual` escolhe a tela animada ao lado: `chat`, `landing`,
-`dashboard`, `workflow` ou `none`.
-
-Um serviço que tem site próprio usa `link` e `textoLink` para apontar
-para lá — é o caso dos robôs.
-
-**`precos`** — preço na página, antes de alguém precisar perguntar.
-Quem esconde preço passa a impressão de que cobra pela cara do cliente.
-Quando um serviço tem valor fechado, escreva o número; quando não tem,
-explique **como** o preço é formado em vez de dizer só "consulte".
+e `visual`. O `visual` escolhe a tela animada ao lado: `landing`, `dashboard`,
+`workflow` ou `none`.
 
 **`limites`** — o que a CARVEX **não** faz. É a seção que mais constrói
 confiança no site, exatamente porque trabalha contra a venda.
@@ -163,8 +145,13 @@ telas dos serviços que se montam conforme o scroll avança.
 
 As três telas em `components/visuals/` ilustram o tipo de entrega — uma
 landing page sendo construída, um painel de indicadores e um fluxo de
-automação. Elas estão marcadas como ilustração, não como dado de cliente
-real, e é importante que continuem assim.
+automação. Elas estão marcadas como ilustração, não como dado de cliente real, e é
+importante que continuem assim.
+
+O painel de BI mostra números inventados (`R$ 284,6k`, `+32%`). São a
+receita de um cliente imaginário, para ilustrar o formato da entrega —
+não têm relação com o que a CARVEX cobra. Ficam em
+`components/visuals/DashboardVisual.tsx` se você quiser trocar.
 
 ## Detalhes técnicos
 

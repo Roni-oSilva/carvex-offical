@@ -5,20 +5,11 @@ export type Service = {
   description: string;
   deliverables: string[];
   leadTime: string;
-  visual: "chat" | "landing" | "dashboard" | "workflow" | "none";
-  link: string;
-  linkText: string;
+  visual: "landing" | "dashboard" | "workflow" | "none";
   whatsappMessage: string;
   active: boolean;
 };
 
-export type PriceItem = {
-  id: string;
-  name: string;
-  price: string;
-  detail: string;
-  note: string;
-};
 
 export type ProcessStep = {
   id: string;
@@ -59,7 +50,6 @@ export type SiteData = {
   };
   symptoms: { title: string; items: string[] };
   services: { title: string; description: string; items: Service[] };
-  pricing: { title: string; description: string; items: PriceItem[]; footnote: string };
   limits: { title: string; description: string; items: string[] };
   tools: { title: string; description: string; groups: ToolGroup[] };
   process: { title: string; description: string; steps: ProcessStep[] };
