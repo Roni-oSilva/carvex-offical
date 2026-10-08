@@ -30,9 +30,9 @@ export function Faq({ data }: { data: SiteData }) {
                   onClick={() => setAberta(ativa ? null : item.id)}
                   aria-expanded={ativa}
                   aria-controls={`resposta-${item.id}`}
-                  className="flex w-full items-center justify-between gap-5 py-6 text-left"
+                  className="group flex w-full items-center justify-between gap-5 py-6 text-left"
                 >
-                  <span className="text-[1.05rem] font-medium text-paper sm:text-[1.18rem]">
+                  <span className="text-[1.05rem] font-medium text-paper transition-colors group-hover:text-brand sm:text-[1.18rem]">
                     {item.question}
                   </span>
                   <span

@@ -41,7 +41,7 @@
     "instagram": "carvex_lab",
     "mensagemPadrao": "Olá, CARVEX! Gostaria de conhecer os serviços.",
     "titulo": "Me conta o que está travando.",
-    "descricao": "Respondo pessoalmente, em geral no mesmo dia. Se não for caso para a CARVEX, eu digo na hora."
+    "descricao": "Respondo pessoalmente. Se não for caso para a CARVEX, digo na hora."
   },
   "_sobre_whatsapp": "O campo whatsapp é SÓ NÚMEROS e precisa começar com 55 (código do Brasil), depois o DDD, depois o número: 55 + 91 + 981902529. Sem o 55 o link não funciona. O whatsappVisivel é só como aparece escrito na tela.",
   "cores": {
@@ -53,34 +53,34 @@
   "hero": {
     "etiqueta": "Marabá · Pará · atendendo o Brasil inteiro",
     "titulo": "Tecnologia que trabalha enquanto você cuida do resto.",
-    "descricao": "Robôs de WhatsApp que atendem 24h, painéis que mostram a verdade, automações que tiram o trabalho manual da sua mão e páginas que trazem cliente.",
-    "reforco": "Feito por quem viveu fechamento mensal, planilha travando e relatório refeito à mão.",
+    "descricao": "Robôs de WhatsApp, painéis de indicadores, automações e páginas que trazem cliente.",
+    "reforco": "Feito por quem viveu planilha travando e relatório refeito à mão.",
     "botaoPrincipal": "Falar com a CARVEX",
     "botaoSecundario": "Ver como funciona"
   },
   "sintomas": {
-    "titulo": "Se alguma destas frases é sua, a gente tem conversa.",
+    "titulo": "Alguma destas é sua?",
     "itens": [
-      "O mesmo relatório é montado à mão toda semana.",
-      "O número que o diretor pede demora dois dias para sair.",
-      "Cada setor tem uma planilha e nenhuma bate com a outra.",
-      "A empresa existe há anos e ainda não tem uma página decente.",
-      "Alguém passa a tarde copiando dado de um sistema para outro.",
-      "A decisão sai no feeling porque o dado chega tarde demais."
+      "O mesmo relatório montado à mão toda semana.",
+      "O número que o diretor pede demora dois dias.",
+      "Cada setor tem uma planilha e nenhuma bate.",
+      "A empresa existe há anos e não tem uma página.",
+      "Alguém copia dado de um sistema para outro.",
+      "A decisão sai no feeling porque o dado atrasa."
     ]
   },
   "servicos": {
     "titulo": "Quatro frentes. Uma ideia só por trás.",
-    "descricao": "Tirar o trabalho que a máquina faz melhor das mãos de quem deveria estar pensando.",
+    "descricao": "Tirar da sua mão o trabalho que a máquina faz melhor.",
     "itens": [
       {
         "nomeCurto": "Robôs de WhatsApp",
         "titulo": "Um robô atendendo no seu WhatsApp, 24 horas.",
-        "descricao": "Marca horário, responde dúvida, anota pedido e chama você quando o assunto precisa de gente. Na API oficial da Meta, sem risco de bloquear seu número.",
+        "descricao": "Marca horário, responde dúvida, anota pedido. Chama você quando precisa de gente.",
         "entregas": [
-          "Robô conectado ao seu número, na API oficial",
-          "Seus serviços, preços e horários cadastrados",
-          "Painel para acompanhar agenda, cobranças ou pedidos",
+          "Robô no seu número, na API oficial",
+          "Serviços, preços e horários cadastrados",
+          "Painel de agenda, cobranças ou pedidos",
           "Você assume a conversa quando quiser"
         ],
         "prazo": "alguns dias",
@@ -93,12 +93,12 @@
       {
         "nomeCurto": "Landing Pages",
         "titulo": "Uma página que trabalha para você.",
-        "descricao": "Não é um cartão de visita digital. É uma página construída para uma coisa: transformar quem chegou em conversa.",
+        "descricao": "Não é cartão de visita. É página feita para virar conversa.",
         "entregas": [
-          "Página sob medida, sem template genérico",
-          "Carregamento abaixo de um segundo",
-          "Botão de WhatsApp com a mensagem já pronta",
-          "Pronta para receber anúncio no primeiro dia"
+          "Página sob medida, sem template",
+          "Carrega em menos de um segundo",
+          "Botão de WhatsApp com mensagem pronta",
+          "Pronta para anúncio no primeiro dia"
         ],
         "prazo": "1 a 2 semanas",
         "visual": "landing",
@@ -110,12 +110,12 @@
       {
         "nomeCurto": "Business Intelligence",
         "titulo": "O número certo, na hora que você precisa.",
-        "descricao": "Seus dados saem da planilha e viram painel. Você abre no celular e vê como a operação está agora, não como estava no mês passado.",
+        "descricao": "Seus dados saem da planilha e viram painel. Abre no celular e vê como está agora.",
         "entregas": [
-          "Painel com os indicadores que mandam no seu negócio",
-          "Atualização automática, sem ninguém apertar botão",
-          "Base organizada de uma vez, não remendada",
-          "Treinamento para a equipe ler sem depender de mim"
+          "Painel com os indicadores que mandam",
+          "Atualiza sozinho, sem apertar botão",
+          "Base organizada, não remendada",
+          "Treinamento para a equipe usar"
         ],
         "prazo": "2 a 4 semanas",
         "visual": "dashboard",
@@ -127,12 +127,12 @@
       {
         "nomeCurto": "Automação",
         "titulo": "O trabalho repetitivo sai da sua mão.",
-        "descricao": "Aquele processo que alguém faz toda segunda-feira vira um fluxo que roda sozinho, avisa quando termina e avisa também quando dá errado.",
+        "descricao": "O processo que alguém faz toda segunda vira fluxo que roda sozinho.",
         "entregas": [
-          "Mapa do processo antes de automatizar qualquer coisa",
-          "Integração entre os sistemas que você já usa",
+          "Mapa do processo antes de automatizar",
+          "Integração com o que você já usa",
           "Aviso automático quando algo falha",
-          "Documentação de como o fluxo funciona"
+          "Documentação do fluxo"
         ],
         "prazo": "1 a 3 semanas",
         "visual": "workflow",
@@ -146,38 +146,38 @@
   "_sobre_prazo_e_entregas": "Prazo e entregas são promessas. Ajuste para o que você realmente consegue cumprir antes de divulgar o site.",
   "precos": {
     "titulo": "Quanto custa.",
-    "descricao": "Preço é a primeira coisa que todo mundo quer saber. Então está aqui, antes de você precisar perguntar.",
+    "descricao": "Antes de você precisar perguntar.",
     "itens": [
       {
         "nome": "Robô de WhatsApp",
         "valor": "R$ 490 de implantação + R$ 129/mês",
-        "detalhe": "Primeiro mês R$ 619, depois R$ 129 por mês. Quem prefere hospedar por conta: R$ 1.490 de compra única.",
+        "detalhe": "Primeiro mês R$ 619, depois R$ 129. Prefere hospedar por conta? R$ 1.490 à vista.",
         "observacao": "Valores de lançamento. Não incluem o que a Meta cobra por conversa."
       },
       {
         "nome": "Landing page",
         "valor": "Sob orçamento",
-        "detalhe": "Proposta fechada antes de começar, com escopo escrito. Sem cobrança por hora.",
+        "detalhe": "Proposta fechada antes de começar. Sem cobrança por hora.",
         "observacao": ""
       },
       {
         "nome": "Painel de indicadores",
         "valor": "Sob orçamento",
-        "detalhe": "O preço acompanha o tamanho da bagunça: quantas fontes de dado, qual estado elas estão.",
+        "detalhe": "O preço acompanha o tamanho da bagunça: quantas fontes, em que estado.",
         "observacao": ""
       },
       {
         "nome": "Automação",
         "valor": "Sob orçamento",
-        "detalhe": "Mapeio o processo primeiro. Se não compensar automatizar, eu digo e não cobro pela conversa.",
+        "detalhe": "Mapeio o processo primeiro. Se não compensar, eu digo e não cobro a conversa.",
         "observacao": ""
       }
     ],
-    "rodape": "Resultado depende do seu negócio. Não prometo percentual de aumento de nada."
+    "rodape": "Resultado depende do seu negócio. Não prometo percentual de nada."
   },
   "ferramentas": {
     "titulo": "Com o que trabalhamos.",
-    "descricao": "Ferramenta boa é a que resolve o seu problema e que a sua equipe consegue manter depois que eu saio.",
+    "descricao": "Ferramenta boa é a que sua equipe consegue manter depois que eu saio.",
     "grupos": [
       {
         "area": "Dados e indicadores",
@@ -214,35 +214,34 @@
     "etapas": [
       {
         "titulo": "Entender",
-        "descricao": "Uma conversa para ver o processo como ele é hoje, com os remendos e tudo. Antes de propor, eu escuto.",
+        "descricao": "Vejo o processo como ele é hoje, com os remendos. Antes de propor, escuto.",
         "ativo": true
       },
       {
         "titulo": "Projetar",
-        "descricao": "Desenho o caminho mais curto até o resultado e mando uma proposta fechada. Você aprova antes de qualquer linha de código.",
+        "descricao": "Proposta fechada com escopo escrito. Você aprova antes de qualquer código.",
         "ativo": true
       },
       {
         "titulo": "Construir",
-        "descricao": "Entrego em partes, não de uma vez só no final. Você acompanha e corrige a rota no meio do caminho.",
+        "descricao": "Entrego em partes. Você corrige a rota no meio do caminho.",
         "ativo": true
       },
       {
         "titulo": "Lapidar",
-        "descricao": "Depois de no ar, a gente ajusta com uso real. É aqui que a solução para de ser boa e começa a ser certa.",
+        "descricao": "Depois no ar, ajusto com uso real. É aqui que vira a solução certa.",
         "ativo": true
       }
     ]
   },
   "limites": {
     "titulo": "Sem enrolação.",
-    "descricao": "O que a CARVEX não faz. Melhor você saber agora do que depois de pagar.",
+    "descricao": "O que a CARVEX não faz. Melhor saber agora.",
     "itens": [
       "Robô não recebe pagamento. Ele fecha o pedido, o dinheiro entra pelo seu meio de sempre.",
       "Não uso bot não oficial de WhatsApp. É API da Meta, mesmo custando mais.",
-      "Não mexo em dado de cliente sem acordo escrito de como ele vai ser tratado.",
-      "Não entrego em três dias um projeto que precisa de três semanas.",
-      "Não sou agência. Não tenho equipe de atendimento, time comercial nem gerente de projeto.",
+      "Não entrego em três dias o que precisa de três semanas.",
+      "Não sou agência. Sem equipe de atendimento nem gerente de projeto.",
       "As demonstrações do site são fictícias. Nenhum dado ali é de cliente real."
     ]
   },
@@ -251,57 +250,57 @@
     "serve": {
       "rotulo": "Funciona bem para",
       "itens": [
-        "Empresa que já tem operação rodando e perde tempo no manual",
-        "Equipe de controladoria ou financeiro afogada em planilha",
-        "Negócio que vive de indicação e precisa de presença digital",
-        "Quem tem o dado, mas não consegue enxergar nada nele"
+        "Operação rodando que perde tempo no manual",
+        "Controladoria ou financeiro afogado em planilha",
+        "Negócio que vive de indicação e precisa aparecer",
+        "Quem tem o dado e não enxerga nada nele"
       ]
     },
     "naoServe": {
       "rotulo": "Não é o lugar certo para",
       "itens": [
-        "Quem quer o site mais barato possível",
+        "Quem quer o mais barato possível",
         "Projeto que precisa ficar pronto para ontem",
         "Quem procura equipe grande e processo corporativo"
       ]
     }
   },
   "duvidas": {
-    "titulo": "O que me perguntam antes de fechar.",
+    "titulo": "O que me perguntam.",
     "itens": [
       {
         "pergunta": "Quanto custa?",
-        "resposta": "Depende do tamanho. Converso com você, entendo o escopo e mando uma proposta fechada antes de começar. Sem cobrança por hora e sem surpresa no meio do caminho."
+        "resposta": "Proposta fechada antes de começar, com escopo escrito. Sem cobrança por hora."
       },
       {
         "pergunta": "Preciso ter meus dados organizados antes?",
-        "resposta": "Não. Quase ninguém tem. Organizar a base faz parte do trabalho — e costuma ser a parte que mais muda o resultado."
+        "resposta": "Não. Quase ninguém tem. Organizar a base faz parte do trabalho."
       },
       {
         "pergunta": "Preciso trocar meu número de WhatsApp?",
-        "resposta": "Não. O robô entra no número que o seu cliente já conhece. A conexão é feita na API oficial da Meta, então o número não corre risco de bloqueio."
+        "resposta": "Não. O robô entra no número que seu cliente já conhece, pela API oficial da Meta."
       },
       {
         "pergunta": "Funciona com o sistema que eu já uso?",
-        "resposta": "Na maioria dos casos sim. Se o seu sistema exporta planilha ou tem integração, dá para trabalhar. Eu confirmo isso na primeira conversa, antes de você pagar qualquer coisa."
+        "resposta": "Quase sempre. Se exporta planilha ou tem integração, dá. Eu confirmo antes de você pagar."
       },
       {
         "pergunta": "E depois que fica pronto, fico na mão?",
-        "resposta": "Não. Toda entrega vem documentada e com treinamento para a sua equipe mexer sozinha. Se precisar de mim depois, estou aqui — mas a ideia é você não precisar."
+        "resposta": "Não. Vem documentado e com treinamento. Se precisar de mim, estou aqui."
       },
       {
         "pergunta": "Vocês são uma agência grande?",
-        "resposta": "Não. É trabalho direto comigo, sem camada de atendimento no meio. Você fala com quem está construindo."
+        "resposta": "Não. Você fala direto comigo, sem camada de atendimento no meio."
       },
       {
         "pergunta": "Atende fora de Marabá?",
-        "resposta": "Sim. O trabalho é remoto por natureza. Já é assim desde o começo."
+        "resposta": "Sim. O trabalho é remoto desde o começo."
       }
     ]
   },
   "diagnostico": {
     "titulo": "Por onde você quer começar?",
-    "descricao": "Escolha a frase mais parecida com a sua situação. A conversa já começa no assunto certo.",
+    "descricao": "Escolha a frase mais parecida com a sua. A conversa já começa certa.",
     "opcoes": [
       {
         "frase": "Minha presença digital não representa o meu trabalho.",

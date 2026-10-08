@@ -27,7 +27,7 @@ export function Identify({ data }: { data: SiteData }) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "0px 0px -10% 0px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="group flex min-h-[78px] items-center justify-between gap-5 rounded-xl border border-white/12 bg-white/[.02] px-5 py-5 transition-colors hover:border-brand/60 hover:bg-brand/[.08] sm:px-7"
+            className="group flex min-h-[78px] items-center justify-between gap-5 rounded-xl border border-white/12 bg-white/[.02] px-5 py-5 transition-all duration-300 hover:translate-x-1 hover:border-brand/60 hover:bg-brand/[.08] sm:px-7"
           >
             <span className="text-[1rem] font-medium text-paper sm:text-[1.14rem]">
               {o.label}

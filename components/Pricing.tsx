@@ -26,7 +26,7 @@ export function Pricing({ data }: { data: SiteData }) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "0px 0px -12% 0px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="grid gap-x-10 gap-y-3 border-b border-white/10 py-7 sm:grid-cols-[1fr_auto] sm:items-start"
+            className="group grid gap-x-10 gap-y-3 border-b border-white/10 py-7 transition-colors hover:border-brand/40 sm:grid-cols-[1fr_auto] sm:items-start"
           >
             <div>
               <h3 className="m-0 text-[1.12rem] font-semibold text-paper">{item.name}</h3>
