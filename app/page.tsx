@@ -4,6 +4,8 @@ import { Rail } from "@/components/ui/rail";
 import { Hero } from "@/components/Hero";
 import { Symptoms } from "@/components/Symptoms";
 import { Services } from "@/components/Services";
+import { Pricing } from "@/components/Pricing";
+import { Limits } from "@/components/Limits";
 import { Tools } from "@/components/Tools";
 import { Process } from "@/components/Process";
 import { Audience } from "@/components/Audience";
@@ -46,8 +48,10 @@ export default function IndexPage() {
           <Hero data={data} />
           <Symptoms data={data} />
           <Services data={data} />
+          <Pricing data={data} />
           <Tools data={data} />
           <Process data={data} />
+          <Limits data={data} />
           <Audience data={data} />
           <Faq data={data} />
           <Identify data={data} />

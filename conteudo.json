@@ -18,22 +18,22 @@
     "Se der erro no deploy, foi vírgula ou chave apagada sem querer.",
     "No GitHub, vá em Commits, abra o anterior e clique em Revert."
   ],
-
   "_confira_antes_de_divulgar": [
-    "Três coisas no arquivo são promessas que VOCÊ vai ter que cumprir.",
-    "Leia e ajuste para a sua realidade antes de mandar o site para alguém:",
-    "  - os prazos em cada serviço (campo 'prazo')",
-    "  - a resposta sobre preço nas perguntas frequentes",
-    "  - a resposta sobre suporte depois de pronto",
+    "ATENÇÃO: os preços dos robôs vieram do seu site robos-carvex.vercel.app.",
+    "Se você mudar o preço lá, mude aqui também — dois preços diferentes",
+    "para o mesmo produto destroem a confiança na hora.",
+    "",
+    "Confira também antes de divulgar:",
+    "  - os prazos de cada serviço (campo 'prazo')",
+    "  - tudo o que está em 'limites': são promessas ao contrário,",
+    "    e é justamente por isso que elas valem",
     "Prefira prometer menos do que você entrega."
   ],
-
   "marca": {
     "nome": "CARVEX",
     "slogan": "Technology, refined.",
     "logo": ""
   },
-
   "contato": {
     "whatsapp": "5591981902529",
     "whatsappVisivel": "(91) 98190-2529",
@@ -43,25 +43,21 @@
     "titulo": "Me conta o que está travando.",
     "descricao": "Respondo pessoalmente, em geral no mesmo dia. Se não for caso para a CARVEX, eu digo na hora."
   },
-
   "_sobre_whatsapp": "O campo whatsapp é SÓ NÚMEROS e precisa começar com 55 (código do Brasil), depois o DDD, depois o número: 55 + 91 + 981902529. Sem o 55 o link não funciona. O whatsappVisivel é só como aparece escrito na tela.",
-
   "cores": {
-    "principal": "#0868F7",
+    "principal": "#1456F0",
     "fundo": "#02050A",
     "texto": "#FFFFFF",
     "destaque": "#9CA8BA"
   },
-
   "hero": {
     "etiqueta": "Marabá · Pará · atendendo o Brasil inteiro",
-    "titulo": "O sistema que a sua operação já deveria ter.",
-    "descricao": "Páginas que trazem cliente, painéis que mostram a verdade e automações que fazem o trabalho repetitivo sozinhas.",
+    "titulo": "Tecnologia que trabalha enquanto você cuida do resto.",
+    "descricao": "Robôs de WhatsApp que atendem 24h, painéis que mostram a verdade, automações que tiram o trabalho manual da sua mão e páginas que trazem cliente.",
     "reforco": "Feito por quem viveu fechamento mensal, planilha travando e relatório refeito à mão.",
     "botaoPrincipal": "Falar com a CARVEX",
     "botaoSecundario": "Ver como funciona"
   },
-
   "sintomas": {
     "titulo": "Se alguma destas frases é sua, a gente tem conversa.",
     "itens": [
@@ -73,11 +69,27 @@
       "A decisão sai no feeling porque o dado chega tarde demais."
     ]
   },
-
   "servicos": {
-    "titulo": "Três frentes. Uma ideia só por trás.",
+    "titulo": "Quatro frentes. Uma ideia só por trás.",
     "descricao": "Tirar o trabalho que a máquina faz melhor das mãos de quem deveria estar pensando.",
     "itens": [
+      {
+        "nomeCurto": "Robôs de WhatsApp",
+        "titulo": "Um robô atendendo no seu WhatsApp, 24 horas.",
+        "descricao": "Marca horário, responde dúvida, anota pedido e chama você quando o assunto precisa de gente. Na API oficial da Meta, sem risco de bloquear seu número.",
+        "entregas": [
+          "Robô conectado ao seu número, na API oficial",
+          "Seus serviços, preços e horários cadastrados",
+          "Painel para acompanhar agenda, cobranças ou pedidos",
+          "Você assume a conversa quando quiser"
+        ],
+        "prazo": "alguns dias",
+        "visual": "chat",
+        "link": "https://robos-carvex.vercel.app",
+        "textoLink": "Conversar com os robôs ao vivo",
+        "mensagemWhatsapp": "Olá, CARVEX! Quero um robô de WhatsApp para o meu negócio.",
+        "ativo": true
+      },
       {
         "nomeCurto": "Landing Pages",
         "titulo": "Uma página que trabalha para você.",
@@ -91,7 +103,9 @@
         "prazo": "1 a 2 semanas",
         "visual": "landing",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em criar uma Landing Page.",
-        "ativo": true
+        "ativo": true,
+        "link": "",
+        "textoLink": ""
       },
       {
         "nomeCurto": "Business Intelligence",
@@ -106,7 +120,9 @@
         "prazo": "2 a 4 semanas",
         "visual": "dashboard",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em uma solução de Business Intelligence.",
-        "ativo": true
+        "ativo": true,
+        "link": "",
+        "textoLink": ""
       },
       {
         "nomeCurto": "Automação",
@@ -121,32 +137,77 @@
         "prazo": "1 a 3 semanas",
         "visual": "workflow",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em automação.",
-        "ativo": true
+        "ativo": true,
+        "link": "",
+        "textoLink": ""
       }
     ]
   },
-
   "_sobre_prazo_e_entregas": "Prazo e entregas são promessas. Ajuste para o que você realmente consegue cumprir antes de divulgar o site.",
-
+  "precos": {
+    "titulo": "Quanto custa.",
+    "descricao": "Preço é a primeira coisa que todo mundo quer saber. Então está aqui, antes de você precisar perguntar.",
+    "itens": [
+      {
+        "nome": "Robô de WhatsApp",
+        "valor": "R$ 490 de implantação + R$ 129/mês",
+        "detalhe": "Primeiro mês R$ 619, depois R$ 129 por mês. Quem prefere hospedar por conta: R$ 1.490 de compra única.",
+        "observacao": "Valores de lançamento. Não incluem o que a Meta cobra por conversa."
+      },
+      {
+        "nome": "Landing page",
+        "valor": "Sob orçamento",
+        "detalhe": "Proposta fechada antes de começar, com escopo escrito. Sem cobrança por hora.",
+        "observacao": ""
+      },
+      {
+        "nome": "Painel de indicadores",
+        "valor": "Sob orçamento",
+        "detalhe": "O preço acompanha o tamanho da bagunça: quantas fontes de dado, qual estado elas estão.",
+        "observacao": ""
+      },
+      {
+        "nome": "Automação",
+        "valor": "Sob orçamento",
+        "detalhe": "Mapeio o processo primeiro. Se não compensar automatizar, eu digo e não cobro pela conversa.",
+        "observacao": ""
+      }
+    ],
+    "rodape": "Resultado depende do seu negócio. Não prometo percentual de aumento de nada."
+  },
   "ferramentas": {
     "titulo": "Com o que trabalhamos.",
     "descricao": "Ferramenta boa é a que resolve o seu problema e que a sua equipe consegue manter depois que eu saio.",
     "grupos": [
       {
         "area": "Dados e indicadores",
-        "itens": ["Power BI", "Power Query", "Excel avançado", "SQL"]
+        "itens": [
+          "Power BI",
+          "Power Query",
+          "Excel avançado",
+          "SQL"
+        ]
       },
       {
         "area": "Automação de processos",
-        "itens": ["Power Automate", "n8n", "Integrações por API", "IA onde faz sentido"]
+        "itens": [
+          "Power Automate",
+          "n8n",
+          "Integrações por API",
+          "IA onde faz sentido"
+        ]
       },
       {
         "area": "Web e publicação",
-        "itens": ["Next.js", "React", "Tailwind", "Vercel"]
+        "itens": [
+          "Next.js",
+          "React",
+          "Tailwind",
+          "Vercel"
+        ]
       }
     ]
   },
-
   "processo": {
     "titulo": "Como um projeto anda.",
     "descricao": "Quatro etapas. Sem reunião que não leva a lugar nenhum.",
@@ -173,7 +234,18 @@
       }
     ]
   },
-
+  "limites": {
+    "titulo": "Sem enrolação.",
+    "descricao": "O que a CARVEX não faz. Melhor você saber agora do que depois de pagar.",
+    "itens": [
+      "Robô não recebe pagamento. Ele fecha o pedido, o dinheiro entra pelo seu meio de sempre.",
+      "Não uso bot não oficial de WhatsApp. É API da Meta, mesmo custando mais.",
+      "Não mexo em dado de cliente sem acordo escrito de como ele vai ser tratado.",
+      "Não entrego em três dias um projeto que precisa de três semanas.",
+      "Não sou agência. Não tenho equipe de atendimento, time comercial nem gerente de projeto.",
+      "As demonstrações do site são fictícias. Nenhum dado ali é de cliente real."
+    ]
+  },
   "paraQuem": {
     "titulo": "Para quem isso funciona.",
     "serve": {
@@ -194,7 +266,6 @@
       ]
     }
   },
-
   "duvidas": {
     "titulo": "O que me perguntam antes de fechar.",
     "itens": [
@@ -205,6 +276,10 @@
       {
         "pergunta": "Preciso ter meus dados organizados antes?",
         "resposta": "Não. Quase ninguém tem. Organizar a base faz parte do trabalho — e costuma ser a parte que mais muda o resultado."
+      },
+      {
+        "pergunta": "Preciso trocar meu número de WhatsApp?",
+        "resposta": "Não. O robô entra no número que o seu cliente já conhece. A conexão é feita na API oficial da Meta, então o número não corre risco de bloqueio."
       },
       {
         "pergunta": "Funciona com o sistema que eu já uso?",
@@ -224,7 +299,6 @@
       }
     ]
   },
-
   "diagnostico": {
     "titulo": "Por onde você quer começar?",
     "descricao": "Escolha a frase mais parecida com a sua situação. A conversa já começa no assunto certo.",
@@ -247,7 +321,6 @@
       }
     ]
   },
-
   "rodape": {
     "texto": "Technology, refined.",
     "copyright": "2026 CARVEX. Todos os direitos reservados."

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useReducedMotion } from "motion/react";
 import { Station, StationTitle } from "./ui/rail";
+import { ChatVisual } from "./visuals/ChatVisual";
 import { LandingVisual } from "./visuals/LandingVisual";
 import { DashboardVisual } from "./visuals/DashboardVisual";
 import { WorkflowVisual } from "./visuals/WorkflowVisual";
@@ -92,25 +93,45 @@ function ServiceRow({
           ))}
         </ul>
 
-        <a
-          href={generateWhatsAppLink(data.contact.whatsapp, service.whatsappMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-9 inline-flex items-center gap-2 border-b border-white/25 pb-1.5 text-[.98rem] transition-colors hover:border-brand"
-        >
-          Falar sobre {service.shortName}
-          <span
-            aria-hidden
-            className="text-brand transition-transform duration-300 group-hover:translate-x-1.5"
+        <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a
+            href={generateWhatsAppLink(data.contact.whatsapp, service.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 border-b border-white/25 pb-1.5 text-[.98rem] transition-colors hover:border-brand"
           >
-            →
-          </span>
-        </a>
+            Falar sobre {service.shortName}
+            <span
+              aria-hidden
+              className="text-brand transition-transform duration-300 group-hover:translate-x-1.5"
+            >
+              →
+            </span>
+          </a>
+
+          {service.link && (
+            <a
+              href={service.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border-b border-transparent pb-1.5 text-[.98rem] text-muted transition-colors hover:border-white/25 hover:text-paper"
+            >
+              {service.linkText || "Ver o site"}
+              <span
+                aria-hidden
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              >
+                ↗
+              </span>
+            </a>
+          )}
+        </div>
       </div>
 
       {service.visual !== "none" && (
         <div className="lg:pt-2">
           <div className="rounded-xl border border-white/10 bg-gradient-to-b from-deep/60 to-ink p-3 sm:p-4">
+            {service.visual === "chat" && <ChatVisual p={scrollYProgress} />}
             {service.visual === "landing" && <LandingVisual p={scrollYProgress} />}
             {service.visual === "dashboard" && <DashboardVisual p={scrollYProgress} />}
             {service.visual === "workflow" && <WorkflowVisual p={scrollYProgress} />}

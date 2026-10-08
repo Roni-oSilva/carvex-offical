@@ -7,23 +7,33 @@ Todo o conteúdo mora em **`conteudo.json`**.
 conteudo.json  →  build  →  site no ar
 ```
 
-Nove estações, presas a uma linha que atravessa a página:
+Onze estações, presas a uma linha que atravessa a página:
 
 ```
-abertura · o problema · o que fazemos · ferramentas · como funciona
-para quem · dúvidas · começar · contato
+abertura · o problema · o que fazemos · preço · ferramentas
+como funciona · sem enrolação · para quem · dúvidas · começar · contato
 ```
+
+A CARVEX vende quatro coisas. Os **robôs de WhatsApp** têm site próprio
+em robos-carvex.vercel.app, e o serviço aponta para lá.
 
 ---
 
 ## Antes de divulgar o site
 
-Três coisas no `conteudo.json` são **promessas que você vai ter que
-cumprir**. Leia e ajuste para a sua realidade:
+### Os preços têm que bater com o outro site
+
+Os valores dos robôs (`R$ 490`, `R$ 129/mês`, `R$ 1.490`) vieram de
+**robos-carvex.vercel.app**. Se você mudar o preço lá, mude aqui também.
+Dois preços diferentes para o mesmo produto derrubam a confiança na hora,
+e o visitante vai achar que um dos dois está errado de propósito.
+
+### O resto são promessas suas
 
 - os **prazos** de cada serviço (campo `prazo`)
-- a resposta sobre **preço** nas dúvidas
-- a resposta sobre **suporte depois de pronto**
+- tudo o que está em **`limites`** — são promessas ao contrário, e é
+  justamente por isso que elas valem
+- a resposta sobre **suporte depois de pronto**, nas dúvidas
 
 Prefira prometer menos do que você entrega.
 
@@ -82,8 +92,19 @@ toda semana" funciona; "falta de eficiência" não.
 
 **`servicos`** — cada um tem `nomeCurto` (a etiqueta e o nome no rodapé),
 `titulo` (a manchete), `entregas` (o que chega na mão do cliente), `prazo`
-e `visual`. O `visual` escolhe a tela animada ao lado: `landing`,
+e `visual`. O `visual` escolhe a tela animada ao lado: `chat`, `landing`,
 `dashboard`, `workflow` ou `none`.
+
+Um serviço que tem site próprio usa `link` e `textoLink` para apontar
+para lá — é o caso dos robôs.
+
+**`precos`** — preço na página, antes de alguém precisar perguntar.
+Quem esconde preço passa a impressão de que cobra pela cara do cliente.
+Quando um serviço tem valor fechado, escreva o número; quando não tem,
+explique **como** o preço é formado em vez de dizer só "consulte".
+
+**`limites`** — o que a CARVEX **não** faz. É a seção que mais constrói
+confiança no site, exatamente porque trabalha contra a venda.
 
 **`ferramentas`** — com o que você trabalha, agrupado por área.
 
