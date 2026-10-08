@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
-import { Reveal } from "./Reveal";
-import { Panel } from "./ui/panel";
+import { Station, StationTitle } from "./ui/rail";
 import { TextRoll } from "./ui/text-roll";
 import { cn, generateWhatsAppLink } from "@/lib/utils";
 import type { SiteData } from "@/lib/types";
@@ -11,7 +10,7 @@ import type { SiteData } from "@/lib/types";
 type Errors = Partial<Record<"nome" | "mensagem" | "contato", string>>;
 
 const campo =
-  "w-full rounded border-0 border-b border-white/30 bg-transparent px-0.5 py-3 text-base " +
+  "w-full rounded border-0 border-b border-white/25 bg-transparent px-0.5 py-3 text-base " +
   "text-paper placeholder:text-muted/45 transition-colors focus:border-brand focus:outline-none";
 
 export function Contact({ data }: { data: SiteData }) {
@@ -29,9 +28,9 @@ export function Contact({ data }: { data: SiteData }) {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const next: Errors = {};
-    if (!form.nome.trim()) next.nome = "Precisamos do seu nome para responder.";
-    if (!form.mensagem.trim()) next.mensagem = "Conte rapidamente o que você precisa.";
-    if (!form.contato.trim()) next.contato = "Deixe um canal para retornarmos.";
+    if (!form.nome.trim()) next.nome = "Preciso do seu nome para te responder.";
+    if (!form.mensagem.trim()) next.mensagem = "Conte rapidamente o que está travando.";
+    if (!form.contato.trim()) next.contato = "Deixe um canal para eu retornar.";
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -43,7 +42,7 @@ export function Contact({ data }: { data: SiteData }) {
       `Contato: ${form.contato}`;
 
     window.open(generateWhatsAppLink(data.contact.whatsapp, texto), "_blank", "noopener");
-    setNote("Mensagem pronta no WhatsApp. É só enviar que retornamos em breve.");
+    setNote("Mensagem pronta no WhatsApp. É só enviar que eu retorno.");
   };
 
   const instagram = data.contact.instagram.replace("@", "");
@@ -73,122 +72,105 @@ export function Contact({ data }: { data: SiteData }) {
   ];
 
   return (
-    <div id="contato" className="px-[var(--pad)] pt-[var(--pad)]">
-      <Panel className="mx-auto max-w-shell p-7 sm:p-10 lg:p-14">
-      <div className="grid items-start gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
-        <div>
-          <Reveal>
-            <h2
-              className="m-0 max-w-[14ch] text-[clamp(2rem,5.6vw,3.6rem)] font-bold leading-[.93] tracking-[-.04em]"
-              style={{ fontVariationSettings: '"wdth" 106' }}
-            >
-              {data.contact.title}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="mt-5 max-w-[40ch] text-muted">{data.contact.description}</p>
-          </Reveal>
+    <Station id="contato" label="Contato" className="pb-[clamp(56px,8vw,96px)]">
+      <StationTitle>{data.contact.title}</StationTitle>
+      <p className="mt-6 max-w-[48ch] text-muted">{data.contact.description}</p>
 
-          <Reveal delay={0.16}>
-            <div className="mt-9 flex flex-col">
-              {canais.map((c, i) => (
-                <a
-                  key={c.label}
-                  href={c.href}
-                  target={c.external ? "_blank" : undefined}
-                  rel={c.external ? "noopener noreferrer" : undefined}
-                  className={cn(
-                    "group flex items-center justify-between gap-4 border-b border-white/10 py-4 transition-colors hover:border-brand",
-                    i === 0 && "border-t"
-                  )}
-                >
-                  <span className="flex items-center gap-3.5">
-                    <c.icon size={19} className="flex-none text-brand" strokeWidth={1.6} />
-                    {c.label}
-                  </span>
-                  <span className="text-[.93rem] text-muted transition-colors group-hover:text-paper">
-                    {c.value}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </Reveal>
+      <div className="mt-12 grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
+        <div className="flex flex-col">
+          {canais.map((c, i) => (
+            <a
+              key={c.label}
+              href={c.href}
+              target={c.external ? "_blank" : undefined}
+              rel={c.external ? "noopener noreferrer" : undefined}
+              className={cn(
+                "group flex items-center justify-between gap-4 border-b border-white/10 py-4 transition-colors hover:border-brand",
+                i === 0 && "border-t"
+              )}
+            >
+              <span className="flex items-center gap-3.5">
+                <c.icon size={18} className="flex-none text-brand" strokeWidth={1.7} />
+                {c.label}
+              </span>
+              <span className="text-[.93rem] text-muted transition-colors group-hover:text-paper">
+                {c.value}
+              </span>
+            </a>
+          ))}
         </div>
 
-        <Reveal delay={0.08}>
-          <form onSubmit={submit} noValidate className="grid gap-5">
-            <div>
-              <label htmlFor="nome" className="mb-2 block text-sm text-muted">
-                Nome
-              </label>
-              <input
-                id="nome"
-                value={form.nome}
-                onChange={set("nome")}
-                placeholder="Como podemos te chamar"
-                className={campo}
-              />
-              {errors.nome && <p className="mt-2 text-[.83rem] text-rose-300">{errors.nome}</p>}
-            </div>
+        <form onSubmit={submit} noValidate className="grid gap-5">
+          <div>
+            <label htmlFor="nome" className="mb-2 block text-sm text-muted">
+              Nome
+            </label>
+            <input
+              id="nome"
+              value={form.nome}
+              onChange={set("nome")}
+              placeholder="Como posso te chamar"
+              className={campo}
+            />
+            {errors.nome && <p className="mt-2 text-[.83rem] text-rose-300">{errors.nome}</p>}
+          </div>
 
-            <div>
-              <label htmlFor="empresa" className="mb-2 block text-sm text-muted">
-                Empresa
-              </label>
-              <input
-                id="empresa"
-                value={form.empresa}
-                onChange={set("empresa")}
-                placeholder="Opcional"
-                className={campo}
-              />
-            </div>
+          <div>
+            <label htmlFor="empresa" className="mb-2 block text-sm text-muted">
+              Empresa
+            </label>
+            <input
+              id="empresa"
+              value={form.empresa}
+              onChange={set("empresa")}
+              placeholder="Opcional"
+              className={campo}
+            />
+          </div>
 
-            <div>
-              <label htmlFor="mensagem" className="mb-2 block text-sm text-muted">
-                Mensagem
-              </label>
-              <textarea
-                id="mensagem"
-                value={form.mensagem}
-                onChange={set("mensagem")}
-                placeholder="Uma landing page, um painel de dados, uma automação — ou uma ideia ainda sem nome."
-                className={cn(campo, "min-h-[96px] resize-y leading-relaxed")}
-              />
-              {errors.mensagem && (
-                <p className="mt-2 text-[.83rem] text-rose-300">{errors.mensagem}</p>
-              )}
-            </div>
+          <div>
+            <label htmlFor="mensagem" className="mb-2 block text-sm text-muted">
+              O que está travando
+            </label>
+            <textarea
+              id="mensagem"
+              value={form.mensagem}
+              onChange={set("mensagem")}
+              placeholder="Um relatório que você monta à mão, um processo que trava, uma página que não existe."
+              className={cn(campo, "min-h-[96px] resize-y leading-relaxed")}
+            />
+            {errors.mensagem && (
+              <p className="mt-2 text-[.83rem] text-rose-300">{errors.mensagem}</p>
+            )}
+          </div>
 
-            <div>
-              <label htmlFor="contato" className="mb-2 block text-sm text-muted">
-                WhatsApp ou e-mail
-              </label>
-              <input
-                id="contato"
-                value={form.contato}
-                onChange={set("contato")}
-                placeholder="Onde devemos responder"
-                className={campo}
-              />
-              {errors.contato && (
-                <p className="mt-2 text-[.83rem] text-rose-300">{errors.contato}</p>
-              )}
-            </div>
+          <div>
+            <label htmlFor="contato" className="mb-2 block text-sm text-muted">
+              WhatsApp ou e-mail
+            </label>
+            <input
+              id="contato"
+              value={form.contato}
+              onChange={set("contato")}
+              placeholder="Onde eu devo responder"
+              className={campo}
+            />
+            {errors.contato && (
+              <p className="mt-2 text-[.83rem] text-rose-300">{errors.contato}</p>
+            )}
+          </div>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <button
-                type="submit"
-                className="group inline-flex min-h-[52px] items-center gap-2 rounded bg-brand px-6 font-medium text-white transition hover:brightness-110"
-              >
-                <TextRoll>Enviar mensagem</TextRoll> <span aria-hidden>→</span>
-              </button>
-              <p className="m-0 max-w-[32ch] text-[.85rem] text-muted">{note}</p>
-            </div>
-          </form>
-        </Reveal>
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="submit"
+              className="group inline-flex min-h-[52px] items-center gap-2 rounded bg-brand px-6 font-medium text-white transition hover:brightness-110"
+            >
+              <TextRoll>Enviar mensagem</TextRoll> <span aria-hidden>→</span>
+            </button>
+            <p className="m-0 max-w-[30ch] text-[.85rem] text-muted">{note}</p>
+          </div>
+        </form>
       </div>
-      </Panel>
-    </div>
+    </Station>
   );
 }

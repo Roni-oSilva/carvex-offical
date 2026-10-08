@@ -19,13 +19,20 @@
     "No GitHub, vá em Commits, abra o anterior e clique em Revert."
   ],
 
+  "_confira_antes_de_divulgar": [
+    "Três coisas no arquivo são promessas que VOCÊ vai ter que cumprir.",
+    "Leia e ajuste para a sua realidade antes de mandar o site para alguém:",
+    "  - os prazos em cada serviço (campo 'prazo')",
+    "  - a resposta sobre preço nas perguntas frequentes",
+    "  - a resposta sobre suporte depois de pronto",
+    "Prefira prometer menos do que você entrega."
+  ],
+
   "marca": {
     "nome": "CARVEX",
     "slogan": "Technology, refined.",
     "logo": ""
   },
-
-  "_sobre_logo": "Para usar sua logo: coloque o arquivo na pasta public/ e escreva aqui /nome-do-arquivo.png. Deixando vazio, o site usa o diamante desenhado em SVG.",
 
   "contato": {
     "whatsapp": "5591981902529",
@@ -33,11 +40,11 @@
     "email": "miraclestudio.land@gmail.com",
     "instagram": "carvex_lab",
     "mensagemPadrao": "Olá, CARVEX! Gostaria de conhecer os serviços.",
-    "titulo": "Vamos construir algo extraordinário?",
-    "descricao": "Conte o que você precisa. A gente responde rápido."
+    "titulo": "Me conta o que está travando.",
+    "descricao": "Respondo pessoalmente, em geral no mesmo dia. Se não for caso para a CARVEX, eu digo na hora."
   },
 
-  "_sobre_whatsapp": "O campo whatsapp é SÓ NÚMEROS e precisa começar com 55 (código do Brasil), depois o DDD, depois o número: 55 + 91 + 981902529. Sem o 55 o link do WhatsApp não funciona. O whatsappVisivel é só como aparece escrito na tela.",
+  "_sobre_whatsapp": "O campo whatsapp é SÓ NÚMEROS e precisa começar com 55 (código do Brasil), depois o DDD, depois o número: 55 + 91 + 981902529. Sem o 55 o link não funciona. O whatsappVisivel é só como aparece escrito na tela.",
 
   "cores": {
     "principal": "#0868F7",
@@ -47,41 +54,71 @@
   },
 
   "hero": {
-    "titulo": "Sua empresa rodando em tecnologia de verdade.",
-    "descricao": "Landing pages, inteligência de dados e automações para quem quer crescer sem aumentar o esforço.",
+    "etiqueta": "Marabá · Pará · atendendo o Brasil inteiro",
+    "titulo": "O sistema que a sua operação já deveria ter.",
+    "descricao": "Páginas que trazem cliente, painéis que mostram a verdade e automações que fazem o trabalho repetitivo sozinhas.",
+    "reforco": "Feito por quem viveu fechamento mensal, planilha travando e relatório refeito à mão.",
     "botaoPrincipal": "Falar com a CARVEX",
-    "botaoSecundario": "Ver o que fazemos",
-    "selos": ["Entrega em semanas", "Feito sob medida", "Suporte direto com quem fez"],
-    "blackHole": true
+    "botaoSecundario": "Ver como funciona"
+  },
+
+  "sintomas": {
+    "titulo": "Se alguma destas frases é sua, a gente tem conversa.",
+    "itens": [
+      "O mesmo relatório é montado à mão toda semana.",
+      "O número que o diretor pede demora dois dias para sair.",
+      "Cada setor tem uma planilha e nenhuma bate com a outra.",
+      "A empresa existe há anos e ainda não tem uma página decente.",
+      "Alguém passa a tarde copiando dado de um sistema para outro.",
+      "A decisão sai no feeling porque o dado chega tarde demais."
+    ]
   },
 
   "servicos": {
-    "titulo": "Três frentes. Um objetivo.",
-    "descricao": "Tirar o atrito do caminho entre o seu trabalho e o seu resultado.",
+    "titulo": "Três frentes. Uma ideia só por trás.",
+    "descricao": "Tirar o trabalho que a máquina faz melhor das mãos de quem deveria estar pensando.",
     "itens": [
       {
-        "titulo": "Páginas que viram cliente",
         "nomeCurto": "Landing Pages",
-        "descricao": "Páginas rápidas e modernas, construídas para transformar atenção em conversa.",
-        "selos": ["Design próprio", "Carrega rápido", "Pronta para anúncio"],
+        "titulo": "Uma página que trabalha para você.",
+        "descricao": "Não é um cartão de visita digital. É uma página construída para uma coisa: transformar quem chegou em conversa.",
+        "entregas": [
+          "Página sob medida, sem template genérico",
+          "Carregamento abaixo de um segundo",
+          "Botão de WhatsApp com a mensagem já pronta",
+          "Pronta para receber anúncio no primeiro dia"
+        ],
+        "prazo": "1 a 2 semanas",
         "visual": "landing",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em criar uma Landing Page.",
         "ativo": true
       },
       {
-        "titulo": "Seus dados finalmente claros",
         "nomeCurto": "Business Intelligence",
-        "descricao": "Painéis que mostram o que está acontecendo agora, sem planilha travando no meio do caminho.",
-        "selos": ["Painéis ao vivo", "Indicadores que importam", "Atualização automática"],
+        "titulo": "O número certo, na hora que você precisa.",
+        "descricao": "Seus dados saem da planilha e viram painel. Você abre no celular e vê como a operação está agora, não como estava no mês passado.",
+        "entregas": [
+          "Painel com os indicadores que mandam no seu negócio",
+          "Atualização automática, sem ninguém apertar botão",
+          "Base organizada de uma vez, não remendada",
+          "Treinamento para a equipe ler sem depender de mim"
+        ],
+        "prazo": "2 a 4 semanas",
         "visual": "dashboard",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em uma solução de Business Intelligence.",
         "ativo": true
       },
       {
-        "titulo": "O trabalho repetitivo sai da sua mão",
         "nomeCurto": "Automação",
-        "descricao": "Processos manuais viram fluxos que rodam sozinhos, do primeiro contato até o resultado.",
-        "selos": ["Integra o que você já usa", "Roda sozinho", "Com IA quando faz sentido"],
+        "titulo": "O trabalho repetitivo sai da sua mão.",
+        "descricao": "Aquele processo que alguém faz toda segunda-feira vira um fluxo que roda sozinho, avisa quando termina e avisa também quando dá errado.",
+        "entregas": [
+          "Mapa do processo antes de automatizar qualquer coisa",
+          "Integração entre os sistemas que você já usa",
+          "Aviso automático quando algo falha",
+          "Documentação de como o fluxo funciona"
+        ],
+        "prazo": "1 a 3 semanas",
         "visual": "workflow",
         "mensagemWhatsapp": "Olá, CARVEX! Tenho interesse em automação.",
         "ativo": true
@@ -89,27 +126,125 @@
     ]
   },
 
-  "_sobre_visual": "O campo visual aceita: landing, dashboard, workflow ou none. É a tela animada que aparece dentro do painel do serviço.",
+  "_sobre_prazo_e_entregas": "Prazo e entregas são promessas. Ajuste para o que você realmente consegue cumprir antes de divulgar o site.",
+
+  "ferramentas": {
+    "titulo": "Com o que trabalhamos.",
+    "descricao": "Ferramenta boa é a que resolve o seu problema e que a sua equipe consegue manter depois que eu saio.",
+    "grupos": [
+      {
+        "area": "Dados e indicadores",
+        "itens": ["Power BI", "Power Query", "Excel avançado", "SQL"]
+      },
+      {
+        "area": "Automação de processos",
+        "itens": ["Power Automate", "n8n", "Integrações por API", "IA onde faz sentido"]
+      },
+      {
+        "area": "Web e publicação",
+        "itens": ["Next.js", "React", "Tailwind", "Vercel"]
+      }
+    ]
+  },
 
   "processo": {
-    "titulo": "Da ideia ao resultado.",
-    "descricao": "Quatro etapas, sem reunião que não leva a lugar nenhum.",
+    "titulo": "Como um projeto anda.",
+    "descricao": "Quatro etapas. Sem reunião que não leva a lugar nenhum.",
     "etapas": [
-      { "titulo": "Entender", "descricao": "Escutamos o problema antes de propor a solução.", "ativo": true },
-      { "titulo": "Projetar", "descricao": "Desenhamos o caminho mais curto até o resultado.", "ativo": true },
-      { "titulo": "Construir", "descricao": "Entregamos rápido, sem abrir mão do acabamento.", "ativo": true },
-      { "titulo": "Lapidar", "descricao": "Refinamos até restar só o que gera valor.", "ativo": true }
+      {
+        "titulo": "Entender",
+        "descricao": "Uma conversa para ver o processo como ele é hoje, com os remendos e tudo. Antes de propor, eu escuto.",
+        "ativo": true
+      },
+      {
+        "titulo": "Projetar",
+        "descricao": "Desenho o caminho mais curto até o resultado e mando uma proposta fechada. Você aprova antes de qualquer linha de código.",
+        "ativo": true
+      },
+      {
+        "titulo": "Construir",
+        "descricao": "Entrego em partes, não de uma vez só no final. Você acompanha e corrige a rota no meio do caminho.",
+        "ativo": true
+      },
+      {
+        "titulo": "Lapidar",
+        "descricao": "Depois de no ar, a gente ajusta com uso real. É aqui que a solução para de ser boa e começa a ser certa.",
+        "ativo": true
+      }
+    ]
+  },
+
+  "paraQuem": {
+    "titulo": "Para quem isso funciona.",
+    "serve": {
+      "rotulo": "Funciona bem para",
+      "itens": [
+        "Empresa que já tem operação rodando e perde tempo no manual",
+        "Equipe de controladoria ou financeiro afogada em planilha",
+        "Negócio que vive de indicação e precisa de presença digital",
+        "Quem tem o dado, mas não consegue enxergar nada nele"
+      ]
+    },
+    "naoServe": {
+      "rotulo": "Não é o lugar certo para",
+      "itens": [
+        "Quem quer o site mais barato possível",
+        "Projeto que precisa ficar pronto para ontem",
+        "Quem procura equipe grande e processo corporativo"
+      ]
+    }
+  },
+
+  "duvidas": {
+    "titulo": "O que me perguntam antes de fechar.",
+    "itens": [
+      {
+        "pergunta": "Quanto custa?",
+        "resposta": "Depende do tamanho. Converso com você, entendo o escopo e mando uma proposta fechada antes de começar. Sem cobrança por hora e sem surpresa no meio do caminho."
+      },
+      {
+        "pergunta": "Preciso ter meus dados organizados antes?",
+        "resposta": "Não. Quase ninguém tem. Organizar a base faz parte do trabalho — e costuma ser a parte que mais muda o resultado."
+      },
+      {
+        "pergunta": "Funciona com o sistema que eu já uso?",
+        "resposta": "Na maioria dos casos sim. Se o seu sistema exporta planilha ou tem integração, dá para trabalhar. Eu confirmo isso na primeira conversa, antes de você pagar qualquer coisa."
+      },
+      {
+        "pergunta": "E depois que fica pronto, fico na mão?",
+        "resposta": "Não. Toda entrega vem documentada e com treinamento para a sua equipe mexer sozinha. Se precisar de mim depois, estou aqui — mas a ideia é você não precisar."
+      },
+      {
+        "pergunta": "Vocês são uma agência grande?",
+        "resposta": "Não. É trabalho direto comigo, sem camada de atendimento no meio. Você fala com quem está construindo."
+      },
+      {
+        "pergunta": "Atende fora de Marabá?",
+        "resposta": "Sim. O trabalho é remoto por natureza. Já é assim desde o começo."
+      }
     ]
   },
 
   "diagnostico": {
-    "titulo": "O que está travando você hoje?",
-    "descricao": "Escolha a frase mais parecida com a sua situação. A conversa começa já no assunto certo.",
+    "titulo": "Por onde você quer começar?",
+    "descricao": "Escolha a frase mais parecida com a sua situação. A conversa já começa no assunto certo.",
     "opcoes": [
-      { "frase": "Minha presença digital não representa o meu trabalho.", "mensagemWhatsapp": "Olá, CARVEX! Minha presença digital não representa o meu trabalho e quero melhorar isso." },
-      { "frase": "Tenho dados espalhados e nenhuma clareza.", "mensagemWhatsapp": "Olá, CARVEX! Tenho dados espalhados e preciso de clareza sobre eles." },
-      { "frase": "Perco horas por semana no mesmo trabalho manual.", "mensagemWhatsapp": "Olá, CARVEX! Perco horas por semana em trabalho manual e quero automatizar." },
-      { "frase": "Tenho uma ideia e não sei por onde começar.", "mensagemWhatsapp": "Olá, CARVEX! Tenho uma ideia e não sei por onde começar." }
+      {
+        "frase": "Minha presença digital não representa o meu trabalho.",
+        "mensagemWhatsapp": "Olá, CARVEX! Minha presença digital não representa o meu trabalho e quero melhorar isso."
+      },
+      {
+        "frase": "Tenho dados espalhados e nenhuma clareza.",
+        "mensagemWhatsapp": "Olá, CARVEX! Tenho dados espalhados e preciso de clareza sobre eles."
+      },
+      {
+        "frase": "Perco horas por semana no mesmo trabalho manual.",
+        "mensagemWhatsapp": "Olá, CARVEX! Perco horas por semana em trabalho manual e quero automatizar."
+      },
+      {
+        "frase": "Tenho uma ideia e não sei por onde começar.",
+        "mensagemWhatsapp": "Olá, CARVEX! Tenho uma ideia e não sei por onde começar."
+      }
     ]
   },
 

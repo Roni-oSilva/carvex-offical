@@ -7,8 +7,25 @@ Todo o conteúdo mora em **`conteudo.json`**.
 conteudo.json  →  build  →  site no ar
 ```
 
-Cinco painéis: **hero · serviços · processo · diagnóstico · contato**.
-Tudo leva ao WhatsApp.
+Nove estações, presas a uma linha que atravessa a página:
+
+```
+abertura · o problema · o que fazemos · ferramentas · como funciona
+para quem · dúvidas · começar · contato
+```
+
+---
+
+## Antes de divulgar o site
+
+Três coisas no `conteudo.json` são **promessas que você vai ter que
+cumprir**. Leia e ajuste para a sua realidade:
+
+- os **prazos** de cada serviço (campo `prazo`)
+- a resposta sobre **preço** nas dúvidas
+- a resposta sobre **suporte depois de pronto**
+
+Prefira prometer menos do que você entrega.
 
 ---
 
@@ -32,48 +49,55 @@ A Vercel republica o site sozinha em cerca de 40 segundos.
 
 Se o deploy falhar, foi vírgula ou chave apagada sem querer.
 No GitHub vá em **Commits**, abra o anterior e clique em **Revert**.
+O site volta ao que era em um clique.
 
 ---
 
 ## O número do WhatsApp
 
-Esse é o campo que mais dá problema. Ele precisa de **três partes coladas,
-só números**:
+É o campo que mais dá problema. Precisa de **três partes coladas, só
+números**:
 
 ```
 55   +   91   +   981902529     →   "whatsapp": "5591981902529"
 país     DDD     seu número
 ```
 
-Sem o `55` na frente, o link do WhatsApp não abre.
+Sem o `55` na frente, o link não abre.
 
-O campo `whatsappVisivel` é outra coisa: é só como o número **aparece
-escrito** na tela. Esse pode ter parênteses e traço.
+O `whatsappVisivel` é outra coisa: é só como o número **aparece escrito**
+na tela. Esse pode ter parênteses e traço.
 
 ---
 
-## O que dá para mudar
+## As seções, uma a uma
 
-Nome e slogan · logo · WhatsApp, e-mail e Instagram · as quatro cores ·
-hero (título, descrição, botões e os três selos) · os três serviços ·
-as etapas do processo · as frases do diagnóstico · contato e rodapé.
+**`hero`** — a abertura. O campo `reforco` é a frase que aparece com a
+barra azul do lado: é ela que separa a CARVEX de qualquer agência, porque
+diz que quem faz já viveu o problema. Não troque por algo genérico.
 
-Para esconder um serviço ou uma etapa, troque `"ativo": true` por `false`.
+**`sintomas`** — frases que o visitante reconhece na própria rotina.
+Quanto mais concreta a cena, melhor. "O mesmo relatório montado à mão
+toda semana" funciona; "falta de eficiência" não.
 
-### Cada serviço tem dois nomes
-
-- `nomeCurto` é a etiqueta discreta no topo do painel e o nome no rodapé
-  ("Landing Pages")
-- `titulo` é a manchete grande do painel ("Páginas que viram cliente")
-
-O campo `visual` escolhe a tela animada dentro do painel: `landing`,
+**`servicos`** — cada um tem `nomeCurto` (a etiqueta e o nome no rodapé),
+`titulo` (a manchete), `entregas` (o que chega na mão do cliente), `prazo`
+e `visual`. O `visual` escolhe a tela animada ao lado: `landing`,
 `dashboard`, `workflow` ou `none`.
 
-### Títulos curtos funcionam melhor
+**`ferramentas`** — com o que você trabalha, agrupado por área.
 
-Os painéis usam tipografia de pôster. Um título com mais de oito palavras
-quebra em linhas demais e perde o impacto. Se precisar explicar mais, use
-a `descricao` logo abaixo.
+**`processo`** — as quatro etapas. Os números são gerados sozinhos.
+
+**`paraQuem`** — duas colunas, serve e não serve. A coluna do "não serve"
+é o que torna a outra acreditável. Não a apague por achar que afasta
+cliente: ela afasta o cliente errado, que é o objetivo.
+
+**`duvidas`** — as perguntas que travam a decisão. A primeira já abre.
+
+**`diagnostico`** — cada frase abre o WhatsApp no assunto certo.
+
+Para esconder um serviço ou uma etapa, troque `"ativo": true` por `false`.
 
 ### Trocar a logo
 
@@ -105,31 +129,33 @@ servidor consultando banco a cada visita.
 
 ---
 
-## Detalhes técnicos
+## A forma do site
 
-**Black Hole** (`components/ui/black-hole.tsx`) — canvas 2D com disco de
-acreção, linhas orbitais, grid e glow, ocupando a direita do hero.
-Desktop: ~800 partículas com parallax de mouse. Mobile: ~240, sem mouse
-tracking, DPR limitado a 1.5. Com `prefers-reduced-motion`, desenha um
-quadro e para.
+A ideia visual é **um sistema em funcionamento** — que é o que a CARVEX
+vende. Uma linha atravessa a página inteira e se preenche conforme a
+pessoa rola (`components/ui/rail.tsx`). As seções se penduram nela como
+estações de um processo, cada uma marcada por um losango.
+
+Esse é o **único movimento contínuo do site**. Todo o resto só se move
+quando alguém pede: as perguntas que abrem, os botões magnéticos, as
+telas dos serviços que se montam conforme o scroll avança.
+
+As três telas em `components/visuals/` ilustram o tipo de entrega — uma
+landing page sendo construída, um painel de indicadores e um fluxo de
+automação. Elas estão marcadas como ilustração, não como dado de cliente
+real, e é importante que continuem assim.
+
+## Detalhes técnicos
 
 **Formulário de contato** — monta a mensagem e abre o WhatsApp já
 preenchido. Sem backend, sem armazenar lead.
 
 **Fonte** — Archivo variável, carregada por `<link>` no `app/layout.tsx`.
 
+**Movimento reduzido** — quem liga `prefers-reduced-motion` no sistema
+recebe o site sem animação nenhuma, e nada quebra.
+
 Next.js 16 · React 19 · TypeScript · Tailwind · Motion · Lucide.
 
-### A forma do site
-
-A unidade de composição é o **painel** (`components/ui/panel.tsx`): um
-bloco de cantos muito arredondados, em dois tons. Azul para os momentos de
-afirmação, escuro para o que exige leitura calma. Eles se alternam na
-pilha para dar ritmo.
-
-Dentro dos painéis entram **telas escuras** (`Screen`) com os mockups que
-se montam durante o scroll — a landing page sendo construída, o painel de
-dados e o fluxo de automação, em `components/visuals/`.
-
-As seções de complexidade, diamante e sobre continuam no histórico do git,
-caso um dia façam falta.
+As versões anteriores (painéis azuis, seção diamante, complexidade)
+continuam no histórico do git, caso um dia façam falta.

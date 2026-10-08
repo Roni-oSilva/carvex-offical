@@ -24,25 +24,39 @@ export function getSiteData(): SiteData {
       accent: c.cores.destaque,
     },
     hero: {
+      label: c.hero.etiqueta,
       title: c.hero.titulo,
       description: c.hero.descricao,
+      reinforcement: c.hero.reforco,
       primaryCta: c.hero.botaoPrincipal,
       secondaryCta: c.hero.botaoSecundario,
-      badges: c.hero.selos,
-      blackHole: c.hero.blackHole,
+    },
+    symptoms: {
+      title: c.sintomas.titulo,
+      items: c.sintomas.itens,
     },
     services: {
       title: c.servicos.titulo,
       description: c.servicos.descricao,
       items: c.servicos.itens.map((s, i) => ({
         id: `servico-${i}`,
-        title: s.titulo,
         shortName: s.nomeCurto,
+        title: s.titulo,
         description: s.descricao,
-        badges: s.selos,
+        deliverables: s.entregas,
+        leadTime: s.prazo,
         visual: s.visual as Service["visual"],
         whatsappMessage: s.mensagemWhatsapp,
         active: s.ativo,
+      })),
+    },
+    tools: {
+      title: c.ferramentas.titulo,
+      description: c.ferramentas.descricao,
+      groups: c.ferramentas.grupos.map((g, i) => ({
+        id: `grupo-${i}`,
+        area: g.area,
+        items: g.itens,
       })),
     },
     process: {
@@ -54,6 +68,22 @@ export function getSiteData(): SiteData {
         title: e.titulo,
         description: e.descricao,
         active: e.ativo,
+      })),
+    },
+    audience: {
+      title: c.paraQuem.titulo,
+      fits: { label: c.paraQuem.serve.rotulo, items: c.paraQuem.serve.itens },
+      doesNotFit: {
+        label: c.paraQuem.naoServe.rotulo,
+        items: c.paraQuem.naoServe.itens,
+      },
+    },
+    faq: {
+      title: c.duvidas.titulo,
+      items: c.duvidas.itens.map((d, i) => ({
+        id: `duvida-${i}`,
+        question: d.pergunta,
+        answer: d.resposta,
       })),
     },
     identify: {
