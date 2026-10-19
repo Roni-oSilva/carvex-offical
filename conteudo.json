@@ -38,7 +38,7 @@
     "instagram": "carvex_lab",
     "mensagemPadrao": "Olá, CARVEX! Gostaria de conhecer os serviços.",
     "titulo": "Me conta o que está travando.",
-    "descricao": "Respondo pessoalmente. Se não for caso para a CARVEX, digo na hora."
+    "descricao": "Respondo pessoalmente."
   },
   "_sobre_whatsapp": "O campo whatsapp é SÓ NÚMEROS e precisa começar com 55 (código do Brasil), depois o DDD, depois o número: 55 + 91 + 981902529. Sem o 55 o link não funciona. O whatsappVisivel é só como aparece escrito na tela.",
   "cores": {
@@ -48,12 +48,12 @@
     "destaque": "#9FC6DF"
   },
   "hero": {
-    "etiqueta": "Marabá · Pará · atendendo o Brasil inteiro",
-    "titulo": "Tecnologia que trabalha enquanto você cuida do resto.",
-    "descricao": "Painéis de indicadores, automações e páginas que trazem cliente.",
+    "etiqueta": "Marabá · Pará · Brasil inteiro",
+    "titulo": "Tecnologia que trabalha por você.",
+    "descricao": "Painéis, automações e páginas que trazem cliente.",
     "reforco": "Feito por quem viveu planilha travando e relatório refeito à mão.",
     "botaoPrincipal": "Falar com a CARVEX",
-    "botaoSecundario": "Ver como funciona"
+    "botaoSecundario": "Ver serviços"
   },
   "sintomas": {
     "titulo": "Alguma destas é sua?",

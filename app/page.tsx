@@ -1,16 +1,12 @@
 import { Splash } from "@/components/Splash";
 import { Navbar } from "@/components/Navbar";
-import { Rail } from "@/components/ui/rail";
+import { Background } from "@/components/Background";
+import { ScrollBar } from "@/components/ScrollBar";
 import { Hero } from "@/components/Hero";
-import { Symptoms } from "@/components/Symptoms";
+import { Marquee } from "@/components/Marquee";
 import { Services } from "@/components/Services";
-import { Limits } from "@/components/Limits";
-import { Tools } from "@/components/Tools";
 import { Process } from "@/components/Process";
-import { Audience } from "@/components/Audience";
-import { Faq } from "@/components/Faq";
-import { Identify } from "@/components/Identify";
-import { Contact } from "@/components/Contact";
+import { Cta } from "@/components/Cta";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { getSiteData } from "@/lib/conteudo";
@@ -29,32 +25,16 @@ export default function IndexPage() {
   return (
     <div style={themeVars}>
       <Splash brandName={data.brand.name} logoUrl={data.brand.logoUrl} />
+      <Background />
+      <ScrollBar />
       <Navbar data={data} />
 
-      {/* clarao unico, atras da abertura */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[80svh]"
-        style={{
-          background:
-            "radial-gradient(70% 55% at 22% 0%, rgb(var(--brand)/.16), transparent 70%)",
-        }}
-      />
-
-      <main className="relative mx-auto max-w-shell px-[var(--pad)] pt-[72px]">
-        {/* a espinha atravessa a pagina inteira: cada secao e uma estacao */}
-        <Rail>
-          <Hero data={data} />
-          <Symptoms data={data} />
-          <Services data={data} />
-          <Tools data={data} />
-          <Process data={data} />
-          <Limits data={data} />
-          <Audience data={data} />
-          <Faq data={data} />
-          <Identify data={data} />
-          <Contact data={data} />
-        </Rail>
+      <main>
+        <Hero data={data} />
+        <Marquee />
+        <Services data={data} />
+        <Process data={data} />
+        <Cta data={data} />
       </main>
 
       <Footer data={data} />

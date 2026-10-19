@@ -1,44 +1,81 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import { Station, StationTitle } from "./ui/rail";
-import type { SiteData } from "@/lib/types";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion, useScroll, useSpring } from "motion/react";
+import type { ProcessStep, SiteData } from "@/lib/types";
 
-/**
- * As etapas sao mesmo uma sequencia — uma depende da anterior —
- * entao os numeros aqui carregam informacao, nao enfeite.
- */
-export function Process({ data }: { data: SiteData }) {
+/** So a primeira frase de cada etapa: o resto vira conversa. */
+const primeiraFrase = (t: string) => (t.split(/(?<=[.!?])\s/)[0] ?? t).trim();
+
+function Step({ s, i }: { s: ProcessStep; i: number }) {
   const reduce = useReducedMotion();
-  const steps = data.process.steps.filter((s) => s.active);
-  if (!steps.length) return null;
+  const ref = useRef<HTMLDivElement>(null);
+  const chegou = useInView(ref, { once: true, margin: "0px 0px -35% 0px" });
 
   return (
-    <Station id="processo" label="Como funciona" className="pb-[clamp(72px,11vw,140px)]">
-      <StationTitle>{data.process.title}</StationTitle>
-      <p className="mt-6 max-w-[54ch] text-muted">{data.process.description}</p>
+    <div ref={ref} className="relative pl-16 md:pl-0 md:pt-20">
+      <motion.span
+        className="absolute left-0 top-0 grid h-12 w-12 place-items-center rounded-full border-2 border-white/20 bg-[#041626] text-[.95rem] font-bold md:left-0"
+        animate={
+          chegou || reduce
+            ? { backgroundColor: "#0a8ad8", borderColor: "#38c6ff", scale: [1, 1.25, 1], boxShadow: "0 0 32px 4px rgba(56,198,255,.55)" }
+            : {}
+        }
+        transition={{ duration: 0.6, delay: reduce ? 0 : 0.1 }}
+      >
+        {s.number}
+      </motion.span>
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 28 }}
+        animate={chegou ? { opacity: 1, y: 0 } : undefined}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <h3 className="m-0 text-[clamp(1.7rem,3vw,2.3rem)] font-bold tracking-[-.02em]">{s.title}</h3>
+        <p className="m-0 mt-2 max-w-[26ch] text-[1rem] text-white/65">{primeiraFrase(s.description)}</p>
+      </motion.div>
+    </div>
+  );
+}
 
-      <ol className="m-0 mt-12 grid list-none gap-0 p-0">
-        {steps.map((s, i) => (
-          <motion.li
-            key={s.id}
-            initial={reduce ? false : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-            transition={{ duration: 0.55, delay: i * 0.07 }}
-            className="grid gap-x-7 gap-y-3 border-t border-white/10 py-7 sm:grid-cols-[auto_1fr_1.5fr] sm:items-baseline"
-          >
-            <span className="text-[.9rem] tabular-nums text-brand">{s.number}</span>
-            <h3
-              className="m-0 text-[clamp(1.3rem,2.6vw,1.75rem)] font-semibold tracking-[-.02em]"
-              style={{ fontVariationSettings: '"wdth" 102' }}
-            >
-              {s.title}
-            </h3>
-            <p className="m-0 max-w-[48ch] text-[.98rem] text-muted">{s.description}</p>
-          </motion.li>
-        ))}
-      </ol>
-    </Station>
+export function Process({ data }: { data: SiteData }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const passos = data.process.steps.filter((s) => s.active);
+
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 70%", "end 60%"] });
+  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 26 });
+
+  return (
+    <section id="processo" className="relative px-[var(--pad)] py-[clamp(70px,10vw,140px)]">
+      <div className="mx-auto max-w-shell">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="m-0 mb-16 text-[clamp(2.4rem,6vw,4.6rem)] font-bold leading-none tracking-[-.035em]"
+        >
+          Quatro passos. <span className="text-grad">Só isso.</span>
+        </motion.h2>
+
+        <div ref={ref} className="relative grid gap-12 md:grid-cols-4 md:gap-6">
+          {/* linha: horizontal no desktop, vertical no celular */}
+          <div aria-hidden className="absolute bottom-0 left-6 top-0 w-px bg-white/10 md:bottom-auto md:left-6 md:right-6 md:top-6 md:h-px md:w-auto" />
+          <motion.div
+            aria-hidden
+            className="absolute bottom-0 left-6 top-0 w-px origin-top bg-gradient-to-b from-brand to-[#38c6ff] md:hidden"
+            style={{ scaleY: reduce ? 1 : p }}
+          />
+          <motion.div
+            aria-hidden
+            className="absolute left-6 right-6 top-6 hidden h-px origin-left bg-gradient-to-r from-brand to-[#38c6ff] md:block"
+            style={{ scaleX: reduce ? 1 : p }}
+          />
+          {passos.map((s, i) => (
+            <Step key={s.id} s={s} i={i} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
