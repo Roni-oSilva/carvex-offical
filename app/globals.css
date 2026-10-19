@@ -4,14 +4,14 @@
 
 :root {
   /* Definidos em conteudo.json e aplicados em app/page.tsx. */
-  --brand: 10 138 216;
-  --ink: 3 16 28;
-  --deep: 4 30 52;
+  --brand: 124 58 237;
+  --ink: 10 6 24;
+  --deep: 22 12 48;
   --paper: 255 255 255;
-  --muted: 159 198 223;
+  --muted: 196 181 230;
   --pad: clamp(16px, 3.6vw, 40px);
   /* Azul mais escuro, para profundidade dentro dos paineis azuis. */
-  --brand-deep: 5 62 112;
+  --brand-deep: 59 20 130;
 }
 
 * { box-sizing: border-box; }
@@ -42,16 +42,16 @@ body {
 }
 
 /* ===== Visual novo ===== */
-:root { --cyan: 56 198 255; }
+:root { --cyan: 192 132 252; }
 
 body { background: rgb(var(--ink)); overflow-x: clip; }
 
 .text-grad {
-  background: linear-gradient(100deg, #ffffff 0%, #9fe3ff 45%, #38c6ff 100%);
+  background: linear-gradient(100deg, #ffffff 0%, #e9d5ff 45%, #c084fc 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .shimmer {
-  background: linear-gradient(100deg, #fff 20%, #bfe8ff 40%, #fff 60%, #bfe8ff 80%);
+  background: linear-gradient(100deg, #fff 20%, #e9d5ff 40%, #fff 60%, #e9d5ff 80%);
   background-size: 250% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: shimmer 4s linear infinite;
@@ -63,17 +63,17 @@ body { background: rgb(var(--ink)); overflow-x: clip; }
   border: 1px solid rgba(255,255,255,.2);
   border-radius: 28px;
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 30px 70px -25px rgba(0,10,40,.8), inset 0 1px 0 rgba(255,255,255,.25);
+  box-shadow: 0 30px 70px -25px rgba(10,3,30,.8), inset 0 1px 0 rgba(255,255,255,.25);
 }
 
 /* fundo */
 .aurora { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .9; }
 .aurora-a { width: 60vmax; height: 60vmax; left: -18vmax; top: -22vmax;
-  background: radial-gradient(circle, rgb(10 138 216 / .55), transparent 65%); animation: driftA 16s ease-in-out infinite alternate; }
+  background: radial-gradient(circle, rgb(124 58 237 / .55), transparent 65%); animation: driftA 16s ease-in-out infinite alternate; }
 .aurora-b { width: 50vmax; height: 50vmax; right: -16vmax; top: 18vh;
-  background: radial-gradient(circle, rgb(56 198 255 / .32), transparent 65%); animation: driftB 20s ease-in-out infinite alternate; }
+  background: radial-gradient(circle, rgb(192 132 252 / .32), transparent 65%); animation: driftB 20s ease-in-out infinite alternate; }
 .aurora-c { width: 55vmax; height: 55vmax; left: 15vw; bottom: -30vmax;
-  background: radial-gradient(circle, rgb(40 90 255 / .4), transparent 65%); animation: driftA 24s ease-in-out infinite alternate-reverse; }
+  background: radial-gradient(circle, rgb(120 50 230 / .4), transparent 65%); animation: driftA 24s ease-in-out infinite alternate-reverse; }
 .grid-bg {
   background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
@@ -88,7 +88,7 @@ body { background: rgb(var(--ink)); overflow-x: clip; }
 /* cartao com brilho que segue o cursor */
 .spot::before {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgb(56 198 255 / .22), transparent 60%);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgb(192 132 252 / .22), transparent 60%);
   opacity: 0; transition: opacity .3s;
 }
 .spot:hover::before { opacity: 1; }

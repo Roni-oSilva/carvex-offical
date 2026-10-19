@@ -42,10 +42,10 @@
   },
   "_sobre_whatsapp": "O campo whatsapp é SÓ NÚMEROS e precisa começar com 55 (código do Brasil), depois o DDD, depois o número: 55 + 91 + 981902529. Sem o 55 o link não funciona. O whatsappVisivel é só como aparece escrito na tela.",
   "cores": {
-    "principal": "#0A8AD8",
-    "fundo": "#03101C",
+    "principal": "#7c3aed",
+    "fundo": "#0A0618",
     "texto": "#FFFFFF",
-    "destaque": "#9FC6DF"
+    "destaque": "#C4B5E6"
   },
   "hero": {
     "etiqueta": "Marabá · Pará · Brasil inteiro",

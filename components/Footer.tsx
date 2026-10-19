@@ -10,7 +10,7 @@ export function Footer({ data }: { data: SiteData }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={data.brand.logoUrl} alt="" className="h-6 w-auto" />
           ) : (
-            <DiamondMark className="h-6 w-6 text-[#38c6ff]" />
+            <DiamondMark className="h-6 w-6 text-[#c084fc]" />
           )}
           <b className="font-bold tracking-[.26em] text-white">{data.brand.name}</b>
           <span>{data.footer.text}</span>

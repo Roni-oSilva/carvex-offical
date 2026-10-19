@@ -28,7 +28,7 @@ export function Cta({ data }: { data: SiteData }) {
         className="relative mx-auto max-w-shell overflow-hidden rounded-panel border border-white/20 px-[clamp(22px,5vw,80px)] py-[clamp(56px,9vw,120px)] text-center shadow-[0_50px_140px_-50px_rgb(var(--brand)/.9)]"
         style={{
           background:
-            "radial-gradient(60% 90% at 50% 0%, rgb(56 198 255 / .45), transparent 70%), linear-gradient(135deg, rgb(var(--brand-deep)) 0%, rgb(var(--brand)) 100%)",
+            "radial-gradient(60% 90% at 50% 0%, rgb(192 132 252 / .45), transparent 70%), linear-gradient(135deg, rgb(var(--brand-deep)) 0%, rgb(var(--brand)) 100%)",
         }}
       >
         <div aria-hidden className="ring ring-1" />
@@ -51,7 +51,7 @@ export function Cta({ data }: { data: SiteData }) {
           <MagneticLink
             href={wa}
             external
-            className="shine relative bg-white px-10 text-[1.1rem] font-bold text-[#053e70] shadow-[0_24px_60px_-20px_rgba(0,20,70,.8)]"
+            className="shine relative bg-white px-10 text-[1.1rem] font-bold text-[#3b1482] shadow-[0_24px_60px_-20px_rgba(20,5,60,.8)]"
           >
             Chamar no WhatsApp <ArrowUpRight size={21} aria-hidden />
           </MagneticLink>
@@ -64,7 +64,7 @@ export function Cta({ data }: { data: SiteData }) {
               href={href}
               target={ext ? "_blank" : undefined}
               rel={ext ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-5 py-3 text-[.95rem] font-semibold backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-[#053e70]"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-5 py-3 text-[.95rem] font-semibold backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-[#3b1482]"
             >
               <Ico size={18} aria-hidden /> {label}
             </a>
