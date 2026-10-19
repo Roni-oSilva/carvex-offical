@@ -75,7 +75,7 @@ export function Navbar({ data }: { data: SiteData }) {
           href={wa}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden min-h-[42px] items-center rounded bg-brand px-4 text-sm font-medium text-white transition hover:brightness-110 md:inline-flex"
+          className="hidden min-h-[42px] items-center rounded-full bg-brand px-5 text-sm font-medium text-white transition hover:brightness-110 md:inline-flex"
         >
           Falar com a CARVEX
         </a>
@@ -119,7 +119,7 @@ export function Navbar({ data }: { data: SiteData }) {
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-[56px] w-full items-center justify-center rounded bg-brand font-medium text-white"
+              className="flex min-h-[56px] w-full items-center justify-center rounded-full bg-brand font-medium text-white"
             >
               Falar com a CARVEX
             </a>

@@ -13,7 +13,7 @@ const config: Config = {
         muted: "rgb(var(--muted) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["Archivo", "system-ui", "sans-serif"],
+        sans: ["Inter Tight", "system-ui", "sans-serif"],
       },
       maxWidth: { shell: "1240px" },
       borderRadius: {

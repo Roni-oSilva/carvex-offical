@@ -4,14 +4,14 @@
 
 :root {
   /* Definidos em conteudo.json e aplicados em app/page.tsx. */
-  --brand: 8 104 247;
-  --ink: 2 5 10;
-  --deep: 3 21 47;
+  --brand: 10 138 216;
+  --ink: 3 16 28;
+  --deep: 4 30 52;
   --paper: 255 255 255;
-  --muted: 156 168 186;
+  --muted: 159 198 223;
   --pad: clamp(16px, 3.6vw, 40px);
   /* Azul mais escuro, para profundidade dentro dos paineis azuis. */
-  --brand-deep: 6 58 150;
+  --brand-deep: 5 62 112;
 }
 
 * { box-sizing: border-box; }

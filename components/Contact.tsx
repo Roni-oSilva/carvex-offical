@@ -163,7 +163,7 @@ export function Contact({ data }: { data: SiteData }) {
           <div className="flex flex-wrap items-center gap-4">
             <button
               type="submit"
-              className="group inline-flex min-h-[52px] items-center gap-2 rounded bg-brand px-6 font-medium text-white transition hover:brightness-110"
+              className="group inline-flex min-h-[52px] items-center gap-2 rounded-full bg-brand px-7 font-medium text-white transition hover:brightness-110"
             >
               <TextRoll>Enviar mensagem</TextRoll> <span aria-hidden>→</span>
             </button>
