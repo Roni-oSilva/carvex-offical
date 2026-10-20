@@ -47,10 +47,10 @@ function Card({ s, i, phone }: { s: Service; i: number; phone: string }) {
         rel="noopener noreferrer"
         onPointerMove={move}
         onPointerLeave={leave}
-        className="spot group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-[32px] border border-white/12 bg-white/[.04] p-7 backdrop-blur-md transition-[transform,border-color] duration-300 ease-out hover:border-[#c084fc]/60"
+        className="spot group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-[32px] border border-white/12 bg-white/[.04] p-7 backdrop-blur-md transition-[transform,border-color] duration-300 ease-out hover:border-[#fdba74]/60"
       >
         <div className="flex items-start justify-between">
-          <span className="text-[.9rem] font-bold tracking-[.2em] text-[#c084fc]">
+          <span className="text-[.9rem] font-bold tracking-[.2em] text-[#fdba74]">
             {String(i + 1).padStart(2, "0")}
           </span>
           <span className="rounded-full border border-white/15 bg-white/[.06] px-3.5 py-1.5 text-[.78rem] font-semibold text-white/75">
@@ -58,7 +58,7 @@ function Card({ s, i, phone }: { s: Service; i: number; phone: string }) {
           </span>
         </div>
 
-        <div className="my-8 h-[130px] rounded-2xl border border-white/10 bg-[#12082b]/60 p-4">
+        <div className="my-8 h-[130px] rounded-2xl border border-white/10 bg-[#1f0f05]/60 p-4">
           {VISUAIS[s.visual]()}
         </div>
 
@@ -69,7 +69,7 @@ function Card({ s, i, phone }: { s: Service; i: number; phone: string }) {
 
         <span className="mt-auto flex items-center gap-2 pt-7 text-[.95rem] font-bold text-white">
           Quero esse
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-[#3b1482] transition-transform duration-300 group-hover:rotate-45">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-[#7c2d12] transition-transform duration-300 group-hover:rotate-45">
             <ArrowUpRight size={18} aria-hidden />
           </span>
         </span>

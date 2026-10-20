@@ -25,7 +25,7 @@ export function MiniLanding({ className }: { className?: string }) {
         ))}
       </div>
       <motion.div
-        className="h-[34%] rounded-xl bg-gradient-to-br from-[#c084fc]/70 to-brand/60"
+        className="h-[34%] rounded-xl bg-gradient-to-br from-[#fdba74]/70 to-brand/60"
         animate={reduce ? undefined : { opacity: [0.7, 1, 0.7] }}
         transition={loop(3)}
       />
@@ -55,7 +55,7 @@ export function MiniBars({ className }: { className?: string }) {
       {alturas.map((a, i) => (
         <motion.span
           key={i}
-          className="flex-1 rounded-t-lg bg-gradient-to-t from-brand/50 to-[#c084fc]"
+          className="flex-1 rounded-t-lg bg-gradient-to-t from-brand/50 to-[#fdba74]"
           style={{ height: `${a[0]}%` }}
           animate={reduce ? undefined : { height: a.map((v) => `${v}%`) }}
           transition={loop(3.4, i * 0.25)}
@@ -86,7 +86,7 @@ export function MiniFlow({ className }: { className?: string }) {
       <div className="absolute left-[9%] right-[9%] top-1/2 h-px -translate-y-1/2 bg-white/25" />
       {!reduce && (
         <motion.span
-          className="absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-white shadow-[0_0_16px_4px_rgba(192,132,252,.9)]"
+          className="absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-white shadow-[0_0_16px_4px_rgba(253,186,116,.9)]"
           animate={{ left: ["9%", "91%"] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.4 }}
         />
@@ -98,7 +98,7 @@ export function MiniFlow({ className }: { className?: string }) {
           animate={reduce ? undefined : { y: [0, -4, 0] }}
           transition={loop(3, i * 0.4)}
         >
-          <span className="h-2.5 w-2.5 rounded-full bg-[#c084fc]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#fdba74]" />
         </motion.span>
       ))}
     </div>
