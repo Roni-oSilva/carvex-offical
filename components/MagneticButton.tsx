@@ -45,7 +45,7 @@ export function MagneticLink({
         if (ref.current) ref.current.style.transform = "";
       }}
       className={cn(
-        "group inline-flex min-h-[52px] items-center justify-center gap-2 rounded px-6 text-base font-medium leading-none transition-all duration-200",
+        "group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full px-7 text-base font-medium leading-none transition-all duration-200",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand",
         className
       )}

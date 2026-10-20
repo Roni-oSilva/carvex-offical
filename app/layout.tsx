@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#02050A",
+  themeColor: "#120D02",
   width: "device-width",
   initialScale: 1,
 };
@@ -24,14 +24,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <head>
         {/*
-          Archivo variavel (eixo de largura wdth).
+          Inter Tight (mesma familia dos outros sites CARVEX).
           Carregada por link em vez de next/font para nao depender de
           acesso ao Google Fonts durante o build.
         */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
