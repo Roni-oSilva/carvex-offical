@@ -26,7 +26,7 @@ export function Marquee() {
                 className="flex items-center gap-8 pr-8 text-[clamp(1.4rem,3.4vw,2.4rem)] font-bold tracking-tight text-white/85"
               >
                 {p}
-                <span className="h-2 w-2 rotate-45 bg-[#fdba74]" />
+                <span className="h-2 w-2 rotate-45 bg-[#f5d77a]" />
               </span>
             ))}
           </div>

@@ -36,7 +36,7 @@ export function Background() {
           style={{
             x: sx,
             y: sy,
-            background: "radial-gradient(closest-side, rgb(253 186 116 / .16), transparent)",
+            background: "radial-gradient(closest-side, rgb(245 215 122 / .16), transparent)",
           }}
         />
       )}

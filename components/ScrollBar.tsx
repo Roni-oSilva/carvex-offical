@@ -9,7 +9,7 @@ export function ScrollBar() {
   return (
     <motion.div
       aria-hidden
-      className="fixed inset-x-0 top-0 z-[90] h-[3px] origin-left bg-gradient-to-r from-brand via-[#fdba74] to-white"
+      className="fixed inset-x-0 top-0 z-[90] h-[3px] origin-left bg-gradient-to-r from-brand via-[#f5d77a] to-white"
       style={{ scaleX }}
     />
   );

@@ -15,10 +15,10 @@ function Step({ s, i }: { s: ProcessStep; i: number }) {
   return (
     <div ref={ref} className="relative pl-16 md:pl-0 md:pt-20">
       <motion.span
-        className="absolute left-0 top-0 grid h-12 w-12 place-items-center rounded-full border-2 border-white/20 bg-[#1f0f05] text-[.95rem] font-bold md:left-0"
+        className="absolute left-0 top-0 grid h-12 w-12 place-items-center rounded-full border-2 border-white/20 bg-[#1c1405] text-[.95rem] font-bold md:left-0"
         animate={
           chegou || reduce
-            ? { backgroundColor: "#ea580c", borderColor: "#fdba74", scale: [1, 1.25, 1], boxShadow: "0 0 32px 4px rgba(253,186,116,.55)" }
+            ? { backgroundColor: "#b8860b", borderColor: "#f5d77a", scale: [1, 1.25, 1], boxShadow: "0 0 32px 4px rgba(245,215,122,.55)" }
             : {}
         }
         transition={{ duration: 0.6, delay: reduce ? 0 : 0.1 }}
@@ -63,12 +63,12 @@ export function Process({ data }: { data: SiteData }) {
           <div aria-hidden className="absolute bottom-0 left-6 top-0 w-px bg-white/10 md:bottom-auto md:left-6 md:right-6 md:top-6 md:h-px md:w-auto" />
           <motion.div
             aria-hidden
-            className="absolute bottom-0 left-6 top-0 w-px origin-top bg-gradient-to-b from-brand to-[#fdba74] md:hidden"
+            className="absolute bottom-0 left-6 top-0 w-px origin-top bg-gradient-to-b from-brand to-[#f5d77a] md:hidden"
             style={{ scaleY: reduce ? 1 : p }}
           />
           <motion.div
             aria-hidden
-            className="absolute left-6 right-6 top-6 hidden h-px origin-left bg-gradient-to-r from-brand to-[#fdba74] md:block"
+            className="absolute left-6 right-6 top-6 hidden h-px origin-left bg-gradient-to-r from-brand to-[#f5d77a] md:block"
             style={{ scaleX: reduce ? 1 : p }}
           />
           {passos.map((s, i) => (

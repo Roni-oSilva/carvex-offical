@@ -98,8 +98,8 @@ export function Hero({ data }: { data: SiteData }) {
             className="m-0 mb-7 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[.06] px-4 py-2 text-[.82rem] font-semibold text-white/85 backdrop-blur"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#fdba74] opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#fdba74]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f5d77a] opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#f5d77a]" />
             </span>
             {data.hero.label}
           </motion.p>
@@ -137,7 +137,7 @@ export function Hero({ data }: { data: SiteData }) {
             <MagneticLink
               href={wa}
               external
-              className="shine w-full bg-white font-bold text-[#7c2d12] shadow-[0_18px_50px_-18px_rgba(253,186,116,.9)] sm:w-auto"
+              className="shine w-full bg-white font-bold text-[#5c3d00] shadow-[0_18px_50px_-18px_rgba(245,215,122,.9)] sm:w-auto"
             >
               {data.hero.primaryCta} <ArrowUpRight size={19} aria-hidden />
             </MagneticLink>
