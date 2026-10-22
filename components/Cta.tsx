@@ -64,7 +64,7 @@ export function Cta({ data }: { data: SiteData }) {
               href={href}
               target={ext ? "_blank" : undefined}
               rel={ext ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-5 py-3 text-[.95rem] font-semibold backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-[#5c3d00]"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-5 py-3 text-[.95rem] font-semibold transition hover:-translate-y-1 hover:bg-white hover:text-[#5c3d00]"
             >
               <Ico size={18} aria-hidden /> {label}
             </a>

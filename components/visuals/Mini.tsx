@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 
 /**
  * Tres miniaturas em loop, uma por servico. Servem tanto no cartao da
@@ -17,8 +18,10 @@ const loop = (duration: number, delay = 0) => ({
 /** Pagina sendo "lida": blocos que brilham em sequencia. */
 export function MiniLanding({ className }: { className?: string }) {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const on = useInView(ref, { margin: "80px" }) && !reduce;
   return (
-    <div className={`relative flex h-full w-full flex-col gap-2 ${className ?? ""}`}>
+    <div ref={ref} className={`relative flex h-full w-full flex-col gap-2 ${className ?? ""}`}>
       <div className="flex gap-1.5">
         {[0, 1, 2].map((i) => (
           <span key={i} className="h-1.5 w-1.5 rounded-full bg-white/40" />
@@ -26,14 +29,14 @@ export function MiniLanding({ className }: { className?: string }) {
       </div>
       <motion.div
         className="h-[34%] rounded-xl bg-gradient-to-br from-[#f5d77a]/70 to-brand/60"
-        animate={reduce ? undefined : { opacity: [0.7, 1, 0.7] }}
+        animate={on ? { opacity: [0.7, 1, 0.7] } : undefined}
         transition={loop(3)}
       />
       <div className="h-2 w-[70%] rounded-full bg-white/50" />
       <div className="h-2 w-[50%] rounded-full bg-white/25" />
       <motion.div
         className="mt-auto h-7 w-[46%] rounded-full bg-white"
-        animate={reduce ? undefined : { scale: [1, 1.07, 1] }}
+        animate={on ? { scale: [1, 1.07, 1] } : undefined}
         transition={loop(2.2)}
       />
     </div>
@@ -43,6 +46,8 @@ export function MiniLanding({ className }: { className?: string }) {
 /** Barras que sobem e descem, com uma linha de tendencia por cima. */
 export function MiniBars({ className }: { className?: string }) {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const on = useInView(ref, { margin: "80px" }) && !reduce;
   const alturas = [
     [38, 62, 46],
     [58, 40, 70],
@@ -51,13 +56,14 @@ export function MiniBars({ className }: { className?: string }) {
     [52, 84, 64],
   ];
   return (
-    <div className={`relative flex h-full w-full items-end gap-2 ${className ?? ""}`}>
+    <div ref={ref} className={`relative flex h-full w-full items-end gap-2 ${className ?? ""}`}>
       {alturas.map((a, i) => (
         <motion.span
           key={i}
           className="flex-1 rounded-t-lg bg-gradient-to-t from-brand/50 to-[#f5d77a]"
-          style={{ height: `${a[0]}%` }}
-          animate={reduce ? undefined : { height: a.map((v) => `${v}%`) }}
+          // so transform (barato): altura fixa e escala vertical
+          style={{ height: "96%", originY: 1, scaleY: a[0] / 96 }}
+          animate={on ? { scaleY: a.map((v) => v / 96) } : undefined}
           transition={loop(3.4, i * 0.25)}
         />
       ))}
@@ -70,7 +76,7 @@ export function MiniBars({ className }: { className?: string }) {
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
           initial={reduce ? false : { pathLength: 0 }}
-          animate={reduce ? undefined : { pathLength: [0, 1, 1, 0] }}
+          animate={on ? { pathLength: [0, 1, 1, 0] } : reduce ? undefined : { pathLength: 1 }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 0.85, 1] }}
         />
       </svg>
@@ -81,10 +87,12 @@ export function MiniBars({ className }: { className?: string }) {
 /** Tres etapas ligadas por uma linha, com um ponto de luz viajando. */
 export function MiniFlow({ className }: { className?: string }) {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const on = useInView(ref, { margin: "80px" }) && !reduce;
   return (
-    <div className={`relative flex h-full w-full items-center justify-between ${className ?? ""}`}>
+    <div ref={ref} className={`relative flex h-full w-full items-center justify-between ${className ?? ""}`}>
       <div className="absolute left-[9%] right-[9%] top-1/2 h-px -translate-y-1/2 bg-white/25" />
-      {!reduce && (
+      {on && (
         <motion.span
           className="absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-white shadow-[0_0_16px_4px_rgba(245,215,122,.9)]"
           animate={{ left: ["9%", "91%"] }}
@@ -94,8 +102,8 @@ export function MiniFlow({ className }: { className?: string }) {
       {[0, 1, 2].map((i) => (
         <motion.span
           key={i}
-          className="relative z-10 grid h-11 w-11 place-items-center rounded-2xl border border-white/30 bg-white/10 backdrop-blur"
-          animate={reduce ? undefined : { y: [0, -4, 0] }}
+          className="relative z-10 grid h-11 w-11 place-items-center rounded-2xl border border-white/30 bg-white/10"
+          animate={on ? { y: [0, -4, 0] } : undefined}
           transition={loop(3, i * 0.4)}
         >
           <span className="h-2.5 w-2.5 rounded-full bg-[#f5d77a]" />

@@ -36,8 +36,8 @@ export function Navbar({ data }: { data: SiteData }) {
         className={cn(
           "flex w-full max-w-[760px] items-center justify-between gap-3 rounded-full border px-3 py-2 pl-5 transition-all duration-500",
           stuck
-            ? "border-white/15 bg-[#1c1405]/75 shadow-[0_20px_60px_-20px_rgba(0,0,0,.8)] backdrop-blur-xl"
-            : "border-white/10 bg-white/[.04] backdrop-blur-md"
+            ? "border-white/15 bg-[#1c1405]/92 shadow-[0_20px_60px_-20px_rgba(0,0,0,.8)]"
+            : "border-white/10 bg-[#1c1405]/70"
         )}
       >
         <a href="#inicio" className="flex items-center gap-2.5" aria-label={`${data.brand.name} inicio`}>

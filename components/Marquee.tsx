@@ -15,7 +15,7 @@ export function Marquee() {
   return (
     <div
       aria-hidden
-      className="relative -rotate-1 overflow-hidden border-y border-white/10 bg-white/[.03] py-5 backdrop-blur-sm"
+      className="relative -rotate-1 overflow-hidden border-y border-white/10 bg-white/[.03] py-5"
     >
       <div className="marquee">
         {[0, 1].map((k) => (
