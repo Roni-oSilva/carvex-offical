@@ -21,7 +21,7 @@ function Card({ s, i, phone }: { s: Service; i: number; phone: string }) {
 
   const move = (e: PointerEvent<HTMLAnchorElement>) => {
     const el = ref.current;
-    if (!el || reduce) return;
+    if (!el || reduce || e.pointerType !== "mouse") return;
     const r = el.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width;
     const py = (e.clientY - r.top) / r.height;
@@ -47,7 +47,7 @@ function Card({ s, i, phone }: { s: Service; i: number; phone: string }) {
         rel="noopener noreferrer"
         onPointerMove={move}
         onPointerLeave={leave}
-        className="spot group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-[32px] border border-white/12 bg-white/[.04] p-7 backdrop-blur-md transition-[transform,border-color] duration-300 ease-out hover:border-[#f5d77a]/60"
+        className="spot group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-[32px] border border-white/12 bg-white/[.04] p-7 transition-[transform,border-color] duration-300 ease-out hover:border-[#f5d77a]/60"
       >
         <div className="flex items-start justify-between">
           <span className="text-[.9rem] font-bold tracking-[.2em] text-[#f5d77a]">

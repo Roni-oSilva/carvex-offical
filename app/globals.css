@@ -54,7 +54,6 @@ body { background: rgb(var(--ink)); overflow-x: clip; }
   background: linear-gradient(100deg, #fff 20%, #fff1c2 40%, #fff 60%, #fff1c2 80%);
   background-size: 250% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  animation: shimmer 4s linear infinite;
 }
 
 /* vidro */
@@ -62,18 +61,17 @@ body { background: rgb(var(--ink)); overflow-x: clip; }
   background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
   border: 1px solid rgba(255,255,255,.2);
   border-radius: 28px;
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 30px 70px -25px rgba(20,14,0,.8), inset 0 1px 0 rgba(255,255,255,.25);
 }
 
 /* fundo */
-.aurora { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .9; }
+.aurora { position: absolute; border-radius: 50%; opacity: .9; } /* degrades ja sao macios: sem filter: blur */
 .aurora-a { width: 60vmax; height: 60vmax; left: -18vmax; top: -22vmax;
-  background: radial-gradient(circle, rgb(212 160 23 / .55), transparent 65%); animation: driftA 16s ease-in-out infinite alternate; }
+  background: radial-gradient(circle, rgb(212 160 23 / .55), transparent 65%); }
 .aurora-b { width: 50vmax; height: 50vmax; right: -16vmax; top: 18vh;
-  background: radial-gradient(circle, rgb(245 215 122 / .32), transparent 65%); animation: driftB 20s ease-in-out infinite alternate; }
+  background: radial-gradient(circle, rgb(245 215 122 / .32), transparent 65%); }
 .aurora-c { width: 55vmax; height: 55vmax; left: 15vw; bottom: -30vmax;
-  background: radial-gradient(circle, rgb(240 190 60 / .4), transparent 65%); animation: driftA 24s ease-in-out infinite alternate-reverse; }
+  background: radial-gradient(circle, rgb(240 190 60 / .4), transparent 65%); }
 .grid-bg {
   background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
@@ -98,14 +96,14 @@ body { background: rgb(var(--ink)); overflow-x: clip; }
 .shine::after {
   content: ""; position: absolute; top: 0; bottom: 0; left: -70%; width: 45%;
   background: linear-gradient(100deg, transparent, rgba(255,255,255,.85), transparent);
-  transform: skewX(-20deg); animation: shineSweep 3.6s ease-in-out infinite;
+  transform: skewX(-20deg); opacity: 0;
   mix-blend-mode: overlay;
 }
 
 /* aneis e pulsos do fechamento */
 .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); pointer-events: none; }
-.ring-1 { width: 520px; height: 520px; left: -160px; top: -200px; animation: spin 40s linear infinite; }
-.ring-2 { width: 380px; height: 380px; right: -120px; bottom: -160px; animation: spin 30s linear infinite reverse; }
+.ring-1 { width: 520px; height: 520px; left: -160px; top: -200px; }
+.ring-2 { width: 380px; height: 380px; right: -120px; bottom: -160px; }
 .pulse-ring { position: absolute; inset: 0; border-radius: 999px; border: 2px solid rgba(255,255,255,.7);
   animation: pulseRing 2.4s ease-out infinite; pointer-events: none; }
 
@@ -116,3 +114,14 @@ body { background: rgb(var(--ink)); overflow-x: clip; }
 @keyframes shineSweep { 0%, 55% { left: -70%; } 100% { left: 130%; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes pulseRing { from { transform: scale(1); opacity: .8; } to { transform: scale(1.5, 1.9); opacity: 0; } }
+
+/* brilho do botao: so quando alguem passa o mouse */
+.shine:hover::after { opacity: 1; animation: shineSweep .9s ease-out 1; }
+
+/* celular/tablet: sem animacao infinita e sem camadas extras */
+@media (hover: none), (pointer: coarse) {
+  .pulse-ring, .shine::after { animation: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .pulse-ring, .shine::after { animation: none !important; }
+}
